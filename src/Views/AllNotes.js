@@ -15,7 +15,7 @@ export default class AllNotes extends Component {
 
     componentDidMount() {
         axios
-            .get("https://fe-notes.herokuapp.com/note/get/all")
+            .get("http://localhost:9001/api/notes")
             .then(res => this.setState({notes: res.data}))
             .catch(error => console.log(error))
     }
@@ -55,7 +55,7 @@ export default class AllNotes extends Component {
      
     headers = [
         { label: "Title", key: "title" },
-        { label: "Note Content", key: "textBody" },
+        { label: "Note Content", key: "content" },
     ];
 
   render() {
@@ -66,9 +66,9 @@ export default class AllNotes extends Component {
                 <CSVLink download="mynotes.csv" data={this.state.notes} headers={this.headers}>
                     Download your notes!
                 </CSVLink>
-                <div class="dropdown">
-                    <button class="dropbtn">Sort Options</button>
-                    <div class="dropdown-content">
+                <div className="dropdown">
+                    <button className="dropbtn">Sort Options</button>
+                    <div className="dropdown-content">
                         <div onClick={(e) => this.sortNotes(e, true)}>A-Z</div>
                         <div onClick={(e) => this.sortNotes(e, false)}>Z-A</div>
                     </div>
@@ -77,7 +77,7 @@ export default class AllNotes extends Component {
             <h2>Your Notes:</h2>
             <div className="notes">
                 {this.state.notes.map(note => {
-                    return <NoteCard key={note._id} note={note} />
+                    return <NoteCard key={note.id} note={note} />
                 })}
             </div>
         </section> :

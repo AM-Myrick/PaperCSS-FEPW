@@ -7,15 +7,15 @@ export default class NewNote extends Component {
         super(props);
         this.state = {
             title: "",
-            textBody: "",
-            _id: ""
+            content: "",
+            id: ""
         }
     }
 
     addNote = e => {
         e.preventDefault();
         axios
-            .post("https://fe-notes.herokuapp.com/note/create", this.state)
+            .post("http://localhost:9001/api/notes/", this.state)
             .then(res => this.props.history.push('/'))
             .catch(error => console.log(error));
     }
@@ -43,8 +43,8 @@ export default class NewNote extends Component {
                 onChange={this.changeHandler}
                 type="text" 
                 placeholder="Note Content"
-                name="textBody"
-                value={this.state.textBody}
+                name="content"
+                value={this.state.content}
                 className="new-textBody"
                 >
             </textarea>
