@@ -15,7 +15,7 @@ export default class AllNotes extends Component {
 
     componentDidMount() {
         axios
-            .get("http://localhost:9001/api/notes")
+            .get("https://nameless-cliffs-24621.herokuapp.com/api/notes")
             .then(res => this.setState({notes: res.data}))
             .catch(error => console.log(error))
     }

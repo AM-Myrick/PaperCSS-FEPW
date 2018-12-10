@@ -19,7 +19,7 @@ export default class SingleNoteView extends React.Component {
 
        fetchNote = id => {
         axios
-          .get(`http://localhost:9001/api/notes/${id}`)
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
           .then(res => this.setState({ note: res.data }))
           .catch(err => console.log(err));
       }
@@ -32,7 +32,7 @@ export default class SingleNoteView extends React.Component {
       deleteNote = e => {
           e.preventDefault();
           axios
-            .delete(`http://localhost:9001/api/notes/${this.state.note.id}`)
+            .delete(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`)
             .then(res => this.props.history.push("/"))
       }
 
