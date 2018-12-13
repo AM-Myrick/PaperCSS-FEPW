@@ -33,7 +33,7 @@ class Login extends Component {
                         message: "Login successful",
                         user: {...initialUser}
                     })
-                    this.props.history.push('/all-notes');
+                    setInterval(() => this.props.history.push('/all-notes'), 750);
                 } else {
                     throw new Error();
                 }
@@ -49,6 +49,7 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
+                <h3>Please Login</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -66,7 +67,7 @@ class Login extends Component {
                         className="input"
                         value={this.state.user.password}
                         onChange={this.changeHandler} />
-                        <button type="submit">Submit</button>
+                        <button type="submit">Login</button>
                 </form>
                 { this.state.message ?
                     (<h4>{this.state.message}</h4>):

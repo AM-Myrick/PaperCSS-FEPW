@@ -3,6 +3,10 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import "./SingleNoteView.css"
 
+const token = localStorage.getItem("access_token");
+axios.defaults.baseURL = 'https://nameless-cliffs-24621.herokuapp.com/'
+axios.defaults.headers.common = {'Authorization': token}
+
 export default class SingleNoteView extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +23,7 @@ export default class SingleNoteView extends React.Component {
 
        fetchNote = id => {
         axios
-          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+          .get(`api/notes/${id}`)
           .then(res => this.setState({ note: res.data }))
           .catch(err => console.log(err));
       }
@@ -32,8 +36,8 @@ export default class SingleNoteView extends React.Component {
       deleteNote = e => {
           e.preventDefault();
           axios
-            .delete(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`)
-            .then(res => this.props.history.push("/"))
+            .delete(`api/notes/${this.state.note.id}`)
+            .then(res => this.props.history.push("/all-notes"))
       }
 
     render() {

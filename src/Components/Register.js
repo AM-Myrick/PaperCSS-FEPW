@@ -48,6 +48,7 @@ class Register extends Component {
     render() {
         return (
             <div className="register">
+                <h3>Please Register</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -65,7 +66,7 @@ class Register extends Component {
                         className="input"
                         value={this.state.user.password}
                         onChange={this.changeHandler} />
-                    <button type="submit">Submit</button>
+                    <button type="submit">Register</button>
                 </form>
                 { this.state.message ?
                     (<h4>{this.state.message}</h4>):
