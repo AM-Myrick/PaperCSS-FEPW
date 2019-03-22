@@ -19,8 +19,12 @@ export default class SingleNoteView extends React.Component {
 
        fetchNote = id => {
         axios
-          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-          .then(res => this.setState({ note: res.data }))
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+          .then(res => {
+            console.log(res)  
+            this.setState({ note: res.data }
+          )
+            })
           .catch(err => console.log(err));
       }
 
@@ -32,8 +36,8 @@ export default class SingleNoteView extends React.Component {
       deleteNote = e => {
           e.preventDefault();
           axios
-            .delete(`https://fe-notes.herokuapp.com/note/delete/${this.state.note._id}`)
-            .then(res => this.props.history.push("/"))
+            .delete(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`)
+            .then(res => this.props.history.push("/all-notes"))
       }
 
     render() {
@@ -45,11 +49,11 @@ export default class SingleNoteView extends React.Component {
             this.state.delete ? 
                 <div className="single-note">
                     <div className="link-wrapper">
-                        <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+                        <Link to={`/edit/${this.state.note.id}`}>edit</Link>
                         <a onClick={this.deleteToggle}>delete</a>
                     </div>
                     <h3>{this.state.note.title}</h3>
-                    <p>{this.state.note.textBody}</p>
+                    <p>{this.state.note.content}</p>
                     <div className="delete-modal">
                         <div className="delete-menu">
                             <p>Are you sure you want to delete this?</p>
@@ -60,11 +64,11 @@ export default class SingleNoteView extends React.Component {
                 </div> :
             <div className="single-note">
                 <div className="link-wrapper">
-                    <Link to={`/edit/${this.state.note._id}`}>edit</Link>
+                    <Link to={`/edit/${this.state.note.id}`}>edit</Link>
                     <a onClick={this.deleteToggle}>delete</a>
                 </div>
                 <h3>{this.state.note.title}</h3>
-                <p>{this.state.note.textBody}</p>
+                <p>{this.state.note.content}</p>
             </div>
         )
     }

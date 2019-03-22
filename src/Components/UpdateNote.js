@@ -7,16 +7,19 @@ export default class UpdateNote extends Component {
         super(props);
         this.state = {
             title: "",
-            textBody: "",
-            _id: ""
+            content: "",
+            id: ""
         }
     }
 
     updateNote = e => {
         e.preventDefault();
         axios
-            .put(`https://fe-notes.herokuapp.com/note/edit/${this.state._id}`, this.state)
-            .then(res => this.props.history.push(`/note/${res.data._id}`))
+            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state)
+            .then(res => {
+                console.log(res)
+                this.props.history.push(`/note/${this.state.id}`)
+            })
             .catch(error => console.log(error));
     }
 
@@ -27,8 +30,8 @@ export default class UpdateNote extends Component {
 
     selectNote = id => {
         axios
-          .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-          .then(res => this.setState({title: res.data.title, textBody: res.data.textBody, _id: res.data._id}))
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+          .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
         
       }
@@ -56,8 +59,8 @@ export default class UpdateNote extends Component {
                 onChange={this.changeHandler}
                 type="text" 
                 placeholder="Note Content"
-                name="textBody"
-                value={this.state.textBody}
+                name="content"
+                value={this.state.content}
                 className="new-textBody"
                 >
             </textarea>
