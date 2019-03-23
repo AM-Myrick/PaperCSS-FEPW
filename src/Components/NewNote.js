@@ -18,7 +18,7 @@ export default class NewNote extends Component {
     addNote = e => {
         e.preventDefault();
         axios
-            .post("api/notes/", this.state)
+            .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state)
             .then(res => this.props.history.push('/all-notes'))
             .catch(error => console.log(error));
     }

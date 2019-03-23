@@ -11,7 +11,7 @@ export default class UpdateNote extends Component {
         super(props);
         this.state = {
             title: "",
-            textBody: "",
+            content: "",
             id: ""
         }
     }
@@ -19,8 +19,11 @@ export default class UpdateNote extends Component {
     updateNote = e => {
         e.preventDefault();
         axios
-            .put(`api/notes/${this.state.id}`, this.state)
-            .then(res => this.props.history.push(`/note/${this.state.id}`))
+            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state)
+            .then(res => {
+                console.log(res)
+                this.props.history.push(`/note/${this.state.id}`)
+            })
             .catch(error => console.log(error));
     }
 
@@ -31,7 +34,11 @@ export default class UpdateNote extends Component {
 
     selectNote = id => {
         axios
+<<<<<<< HEAD
           .get(`api/notes/${id}`)
+=======
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+>>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
         

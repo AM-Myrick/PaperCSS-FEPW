@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import "./Login.css"
+import "./Login.css";
 
 const URL = "https://nameless-cliffs-24621.herokuapp.com";
 
@@ -33,7 +33,11 @@ class Login extends Component {
                         message: "Login successful",
                         user: {...initialUser}
                     })
+<<<<<<< HEAD
                     setInterval(() => this.props.history.push('/all-notes'), 750);
+=======
+                    setInterval(() => this.props.history.push('/all-notes'), 100);
+>>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
                 } else {
                     throw new Error();
                 }
@@ -61,7 +65,11 @@ class Login extends Component {
                         onChange={this.changeHandler} />
                     <label htmlFor="password">Password:</label>
                     <input 
+<<<<<<< HEAD
                         type="text" 
+=======
+                        type="password" 
+>>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
                         id="password" 
                         name="password" 
                         className="input"

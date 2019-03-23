@@ -14,8 +14,8 @@ const NoteCard = props => {
                     props.note.title.substring(0, 10) + "..." :
                     props.note.title}</h4>
                 <p class="card-text">{props.note.content.length > 75?
-                    props.note.content.substring(0, 75) + "..." :
-                    props.note.content}</p>
+                    props.note.textBody.substring(0, 75) + "..." :
+                    props.note.textBody}</p>
             </div>
         </Link>
     )

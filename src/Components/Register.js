@@ -60,7 +60,7 @@ class Register extends Component {
                         onChange={this.changeHandler} />
                     <label htmlFor="password">Password:</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         id="password" 
                         name="password" 
                         className="input"
