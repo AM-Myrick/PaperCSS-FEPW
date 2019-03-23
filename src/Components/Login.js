@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 
@@ -15,6 +16,7 @@ class Login extends Component {
         this.state = {
             user: { ...initialUser },
             message: "",
+            loggedIn: false,
         }
     }
 
@@ -33,11 +35,6 @@ class Login extends Component {
                         message: "Login successful",
                         user: {...initialUser}
                     })
-<<<<<<< HEAD
-                    setInterval(() => this.props.history.push('/all-notes'), 750);
-=======
-                    setInterval(() => this.props.history.push('/all-notes'), 100);
->>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
                 } else {
                     throw new Error();
                 }
@@ -64,18 +61,16 @@ class Login extends Component {
                         value={this.state.user.username}
                         onChange={this.changeHandler} />
                     <label htmlFor="password">Password:</label>
-                    <input 
-<<<<<<< HEAD
-                        type="text" 
-=======
+                    <input
                         type="password" 
->>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
                         id="password" 
                         name="password" 
                         className="input"
                         value={this.state.user.password}
                         onChange={this.changeHandler} />
-                        <button type="submit">Login</button>
+                        <NavLink to="/all-notes">
+                            <button onClick={this.submitHandler}type="submit">Login</button>
+                        </NavLink>
                 </form>
                 { this.state.message ?
                     (<h4>{this.state.message}</h4>):

@@ -10,6 +10,9 @@ import Register from "./Components/Register";
 import Login from "./Components/Login";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+  }
   
   render() {
     return (

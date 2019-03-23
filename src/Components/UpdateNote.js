@@ -34,11 +34,7 @@ export default class UpdateNote extends Component {
 
     selectNote = id => {
         axios
-<<<<<<< HEAD
-          .get(`api/notes/${id}`)
-=======
           .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
->>>>>>> d62854e74aea1e1c83a1c25c0f5ed2d3880e8966
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
         
