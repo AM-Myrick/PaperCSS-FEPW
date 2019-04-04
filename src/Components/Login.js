@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
+import AllNotes from "../Views/AllNotes";
 import axios from "axios";
 import "./Login.css";
 
@@ -17,6 +18,7 @@ class Login extends Component {
             user: { ...initialUser },
             message: "",
             loggedIn: false,
+            notes: "",
         }
     }
 
@@ -33,7 +35,9 @@ class Login extends Component {
                     localStorage.setItem("access_token", res.data.token);
                     this.setState({
                         message: "Login successful",
-                        user: {...initialUser}
+                        user: {...initialUser},
+                        notes: res.data.notes,
+                        loggedIn: true
                     })
                 } else {
                     throw new Error();
@@ -75,6 +79,10 @@ class Login extends Component {
                 { this.state.message ?
                     (<h4>{this.state.message}</h4>):
                     undefined}
+                { this.state.loggedIn ?
+                    < AllNotes notes={this.state.notes} history={this.props.history} />:
+                    undefined
+                }
             </div>
         );
     }

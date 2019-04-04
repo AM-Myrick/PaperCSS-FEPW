@@ -2,21 +2,29 @@ import React, { Component } from 'react';
 import NoteCard from "./NoteCard";
 import './AllNotes.css';
 import { CSVLink } from "react-csv";
-import Authenticate from "../Components/Authentication";
+import axios from "axios";
 class AllNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: props.notes,
+            notes: this.props.notes,
             selected: 0,
         }
     }
 
     componentDidMount() {
-        // axios
-        //     .get("https://nameless-cliffs-24621.herokuapp.com/api/notes/")
-        //     .then(res => this.setState({notes: res.data}))
-        //     .catch(error => console.log(error))
+        if (this.state.notes == undefined) {
+            axios
+            .get("api/notes")
+            .then(res => {
+                this.setState({notes: res.data})
+            })
+            .catch(error => {
+              console.log(error)
+              this.props.history.push('/all-notes');
+            })
+        }
+        this.props.history.push('/all-notes');
     }
 
     selectNote = id => this.setState({ selected: id });
@@ -85,4 +93,4 @@ class AllNotes extends Component {
   }
 }
 
-export default Authenticate(AllNotes);
+export default AllNotes;
