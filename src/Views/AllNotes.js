@@ -14,7 +14,8 @@ class AllNotes extends Component {
 
     componentDidMount() {
         if (this.props.location.state !== undefined) {
-            this.setState({notes: this.props.location.state.notes})
+            this.setState({notes: this.props.location.state.notes});
+            this.props.location.state = undefined;
         }
         else {
             axios
