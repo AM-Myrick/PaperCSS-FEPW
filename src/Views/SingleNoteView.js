@@ -24,8 +24,7 @@ export default class SingleNoteView extends React.Component {
        fetchNote = id => {
         axios
           .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
-          .then(res => {
-            console.log(res)  
+          .then(res => { 
             this.setState({ note: res.data }
           )
             })

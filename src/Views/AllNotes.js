@@ -21,6 +21,7 @@ class AllNotes extends Component {
             })
             .catch(error => {
               console.log(error)
+              this.componentDidMount();
               this.props.history.push('/all-notes');
             })
         }
