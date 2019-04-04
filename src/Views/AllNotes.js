@@ -3,30 +3,31 @@ import NoteCard from "./NoteCard";
 import './AllNotes.css';
 import { CSVLink } from "react-csv";
 import axios from "axios";
+
+const URL = "https://nameless-cliffs-24621.herokuapp.com";
 class AllNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
             notes: "",
             selected: 0,
+            token: ""
         }
     }
 
     componentDidMount() {
-        if (this.props.location.state !== undefined) {
-            this.setState({notes: this.props.location.state.notes});
-            this.props.location.state = undefined;
-        }
-        else {
-            axios
-            .get("api/notes")
+        let token = localStorage.getItem("access_token")
+        axios
+            .get(`${URL}/api/notes`,
+            {headers: 
+                {'Authorization': token}
+            })
             .then(res => {
                 this.setState({notes: res.data})
             })
             .catch(error => {
               console.log(error)
             })
-        }
         console.log(this.props, this.state)
     }
 

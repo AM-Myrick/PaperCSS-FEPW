@@ -22,8 +22,12 @@ export default class SingleNoteView extends React.Component {
       }
 
        fetchNote = id => {
+        let token = localStorage.getItem("access_token")
         axios
-          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`,
+          {headers: 
+              {'Authorization': token}
+          })
           .then(res => { 
             this.setState({ note: res.data }
           )
