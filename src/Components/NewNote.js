@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "./NewNote.css";
 
-const token = localStorage.getItem("access_token");
-axios.defaults.baseURL = 'https://nameless-cliffs-24621.herokuapp.com/'
-axios.defaults.headers.common = {'Authorization': token}
 export default class NewNote extends Component {
     constructor(props) {
         super(props);
@@ -17,8 +14,12 @@ export default class NewNote extends Component {
 
     addNote = e => {
         e.preventDefault();
+        let token = localStorage.getItem("access_token")
         axios
-            .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state)
+            .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state,
+            {headers: 
+                {'Authorization': token}
+            })
             .then(res => this.props.history.push('/all-notes'))
             .catch(error => console.log(error));
     }
