@@ -32,7 +32,6 @@ class Register extends Component {
                         message: "Registration successful",
                         user: {...initialUser}
                     })
-                    window.location.reload()
                     this.props.history.push('/login');
                 } else {
                     throw new Error();

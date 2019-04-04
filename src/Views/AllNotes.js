@@ -28,7 +28,6 @@ class AllNotes extends Component {
             .catch(error => {
               console.log(error)
             })
-        console.log(this.props, this.state)
     }
 
     selectNote = id => this.setState({ selected: id });
