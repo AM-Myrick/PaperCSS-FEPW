@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AllNotes from "../Views/AllNotes";
 import axios from "axios";
 import "./Login.css";
@@ -32,12 +32,17 @@ class Login extends Component {
         axios.post(`${URL}/api/login`, this.state.user)
             .then(res => {
                 if (res.status === 200 && res.data) {
+                    console.log(res.data.notes)
                     localStorage.setItem("access_token", res.data.token);
                     this.setState({
                         message: "Login successful",
                         user: {...initialUser},
                         notes: res.data.notes,
                         loggedIn: true
+                    })
+                    this.props.history.push({
+                        pathname: "/all-notes",
+                        state: this.state,    
                     })
                 } else {
                     throw new Error();
@@ -72,17 +77,13 @@ class Login extends Component {
                         className="input"
                         value={this.state.user.password}
                         onChange={this.changeHandler} />
-                        <NavLink to="/all-notes">
+                        <Link to="/all-notes">
                             <button onClick={this.submitHandler}type="submit">Login</button>
-                        </NavLink>
+                        </Link>
                 </form>
                 { this.state.message ?
                     (<h4>{this.state.message}</h4>):
                     undefined}
-                { this.state.loggedIn ?
-                    < AllNotes notes={this.state.notes} history={this.props.history} />:
-                    undefined
-                }
             </div>
         );
     }

@@ -7,13 +7,16 @@ class AllNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: this.props.notes,
+            notes: "",
             selected: 0,
         }
     }
 
     componentDidMount() {
-        if (this.state.notes == undefined) {
+        if (this.props.location.state !== undefined) {
+            this.setState({notes: this.props.location.state.notes})
+        }
+        else {
             axios
             .get("api/notes")
             .then(res => {
@@ -21,11 +24,9 @@ class AllNotes extends Component {
             })
             .catch(error => {
               console.log(error)
-              this.componentDidMount();
-              this.props.history.push('/all-notes');
             })
         }
-        this.props.history.push('/all-notes');
+        console.log(this.props, this.state)
     }
 
     selectNote = id => this.setState({ selected: id });
