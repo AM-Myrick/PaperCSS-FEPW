@@ -3,8 +3,6 @@ import axios from "axios";
 import "./UpdateNote.css";
 
 const token = localStorage.getItem("access_token");
-axios.defaults.baseURL = 'https://nameless-cliffs-24621.herokuapp.com/'
-axios.defaults.headers.common = {'Authorization': token}
 
 export default class UpdateNote extends Component {
     constructor(props) {
@@ -19,7 +17,10 @@ export default class UpdateNote extends Component {
     updateNote = e => {
         e.preventDefault();
         axios
-            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state)
+            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state,
+            {headers: 
+                {'Authorization': token}
+            })
             .then(res => {
                 console.log(res)
                 this.props.history.push(`/note/${this.state.id}`)
@@ -34,7 +35,10 @@ export default class UpdateNote extends Component {
 
     selectNote = id => {
         axios
-          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`,
+          {headers: 
+              {'Authorization': token}
+          })
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
         
