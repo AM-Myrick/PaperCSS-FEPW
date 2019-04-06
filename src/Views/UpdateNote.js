@@ -22,7 +22,6 @@ export default class UpdateNote extends Component {
                 {'Authorization': token}
             })
             .then(res => {
-                console.log(res)
                 this.props.history.push(`/note/${this.state.id}`)
             })
             .catch(error => console.log(error));
