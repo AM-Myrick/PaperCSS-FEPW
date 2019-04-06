@@ -32,7 +32,6 @@ class Login extends Component {
         axios.post(`${URL}/api/login`, this.state.user)
             .then(res => {
                 if (res.status === 200 && res.data) {
-                    console.log(res.data.notes)
                     localStorage.setItem("access_token", res.data.token);
                     this.setState({
                         message: "Login successful",
