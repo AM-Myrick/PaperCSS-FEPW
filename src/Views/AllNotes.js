@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NoteCard from "./NoteCard";
+import NoteCard from "../Components/NoteCard";
 import './AllNotes.css';
 import { CSVLink } from "react-csv";
 import axios from "axios";

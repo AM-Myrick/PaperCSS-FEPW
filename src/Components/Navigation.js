@@ -4,10 +4,6 @@ import "./Navigation.css"
 
 
 export default class Navigation extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     logout = () => {
         localStorage.removeItem("access_token");
     }

@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
-import Navigation from "./Views/Navigation";
+import Navigation from "./Components/Navigation";
 import AllNotes from "./Views/AllNotes";
-import NewNote from "./Components/NewNote"
+import NewNote from "./Views/NewNote"
 import './App.css';
 import SingleNoteView from './Views/SingleNoteView';
-import UpdateNote from "./Components/UpdateNote";
-import Register from "./Components/Register";
-import Login from "./Components/Login";
+import UpdateNote from "./Views/UpdateNote";
+import Register from "./Views/Register";
+import Login from "./Views/Login";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
   render() {
     return (
       <div className="App">
