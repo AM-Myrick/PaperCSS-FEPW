@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "./UpdateNote.css";
 
-const token = localStorage.getItem("access_token");
-
 export default class UpdateNote extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +14,7 @@ export default class UpdateNote extends Component {
 
     updateNote = e => {
         e.preventDefault();
+        const token = localStorage.getItem("access_token");
         axios
             .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state,
             {headers: 
@@ -33,6 +32,7 @@ export default class UpdateNote extends Component {
       }
 
     selectNote = id => {
+        const token = localStorage.getItem("access_token");
         axios
           .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`,
           {headers: 
@@ -40,7 +40,7 @@ export default class UpdateNote extends Component {
           })
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
-        
+
       }
 
     changeHandler = e => {
