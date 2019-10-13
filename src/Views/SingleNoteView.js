@@ -38,6 +38,13 @@ export default class SingleNoteView extends React.Component {
           this.setState({delete: !this.state.delete})
       }
 
+      deleteModalOff = e => {
+          e.preventDefault();
+          return this.state.delete === true ? 
+            this.setState({delete: false}) :
+            null;
+      }
+
       deleteNote = e => {
           e.preventDefault();
           axios
@@ -56,25 +63,25 @@ export default class SingleNoteView extends React.Component {
                     <p>Loading...</p>
                 </div> :
             this.state.delete ? 
-                <div className="single-note">
+                <div className="single-note" onClick={this.deleteModalOff}>
                     <div className="link-wrapper">
                         <Link to={`/edit/${this.state.note.id}`}>edit</Link>
-                        <a onClick={this.deleteToggle}>delete</a>
+                        <p onClick={this.deleteToggle}>delete</p>
                     </div>
                     <h3>{this.state.note.title}</h3>
                     <p>{this.state.note.content}</p>
                     <div className="delete-modal">
                         <div className="delete-menu">
                             <p>Are you sure you want to delete this?</p>
-                            <a className="delete" onClick={this.deleteNote}>Delete</a>
-                            <a className="cancel" onClick={this.deleteToggle}>No</a>
+                            <div className="cancel" onClick={this.deleteToggle}>Cancel</div>
+                            <div className="delete" onClick={this.deleteNote}>Delete</div>
                         </div>
                     </div>
                 </div> :
             <div className="single-note">
                 <div className="link-wrapper">
                     <Link to={`/edit/${this.state.note.id}`}>edit</Link>
-                    <a onClick={this.deleteToggle}>delete</a>
+                    <p onClick={this.deleteToggle}>delete</p>
                 </div>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.content}</p>
