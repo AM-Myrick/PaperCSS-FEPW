@@ -30,8 +30,8 @@ export default class Navigation extends Component {
                     <div className="btn-container">
                         <NavLink to="/">Register</NavLink>
                         <NavLink to="/login">Login</NavLink>
-                        <NavLink to="/all-notes">View Your Notes</NavLink>
-                        <NavLink to="/add-note">Add New Note</NavLink>
+                        <NavLink to="/all-notes">View Notes</NavLink>
+                        <NavLink to="/add-note">Add Note</NavLink>
                         <NavLink to="/login" onClick={() => this.logout()}>Logout</NavLink>
                     </div>
                 </nav> :
@@ -49,8 +49,8 @@ export default class Navigation extends Component {
                         <div className={this.state.width <= 768 ? "collapsible-body btn-container" : "btn-container"}>
                             <NavLink to="/">Register</NavLink>
                             <NavLink to="/login">Login</NavLink>
-                            <NavLink to="/all-notes">View Your Notes</NavLink>
-                            <NavLink to="/add-note">Add New Note</NavLink>
+                            <NavLink to="/all-notes">View Notes</NavLink>
+                            <NavLink to="/add-note">Add Note</NavLink>
                             <NavLink to="/login" onClick={() => this.logout()}>Logout</NavLink>
                         </div>
                     </div>
