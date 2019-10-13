@@ -16,7 +16,10 @@ nav.fixed .btn-container {
 }
 
 nav.fixed .btn-container a {
-    height: 100px
+    height: 100px;
+    margin: 1%;
+    margin-bottom: 0;
+    width: 75%;
 }
 
 @media (min-width: 1000px) {
@@ -44,20 +47,18 @@ nav .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 300px;
 }
 
 nav .btn-container a {
     text-decoration: none;
     background-color: #24B8BD;
     color: #FFFFFF;
-    width: 75%;
+    width: 150px;
     padding: 5%;
-    margin: 1%;
-    margin-bottom: 10%;
+    margin-bottom: 1rem;
     font-size: 1.2rem;
     text-align: center;
-    height: 15%;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
