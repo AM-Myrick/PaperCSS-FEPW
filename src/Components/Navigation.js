@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import NavLinks from "./NavLinks";
 import "./Navigation.css"
 
 
@@ -19,21 +19,12 @@ export default class Navigation extends Component {
         this.setState({ width: window.innerWidth })
     }
 
-    logout = () => {
-        localStorage.removeItem("access_token");
-    }
     render() {
         return (
             this.state.width >= 1000 ?
                 <nav>
                     <h1>Paper Notes</h1>
-                    <div className="btn-container">
-                        <NavLink to="/">Register</NavLink>
-                        <NavLink to="/login">Login</NavLink>
-                        <NavLink to="/all-notes">View Notes</NavLink>
-                        <NavLink to="/add-note">Add Note</NavLink>
-                        <NavLink to="/login" onClick={() => this.logout()}>Logout</NavLink>
-                    </div>
+                    <NavLinks width={this.state.width} />
                 </nav> :
                 <nav className="fixed">
                     <h1>Paper Notes</h1>
@@ -46,13 +37,7 @@ export default class Navigation extends Component {
                             <div className="bar3"></div>
                         </label>
                         </button>
-                        <div className={this.state.width <= 768 ? "collapsible-body btn-container" : "btn-container"}>
-                            <NavLink to="/">Register</NavLink>
-                            <NavLink to="/login">Login</NavLink>
-                            <NavLink to="/all-notes">View Notes</NavLink>
-                            <NavLink to="/add-note">Add Note</NavLink>
-                            <NavLink to="/login" onClick={() => this.logout()}>Logout</NavLink>
-                        </div>
+                        <NavLinks width={this.state.width} />
                     </div>
                 </nav>
         )
