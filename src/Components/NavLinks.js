@@ -11,8 +11,8 @@ const NavLinks = props => {
     return (
         token === null ?    
         <div className={props.width <= 768 ? "collapsible-body btn-container" : "btn-container"}>
-            <NavLink to="/">Register</NavLink>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink className="sign-in" to="/">Register</NavLink>
+            <NavLink className="sign-in" to="/login">Login</NavLink>
         </div> :
         <div className={props.width <= 768 ? "collapsible-body btn-container" : "btn-container"}>
             <NavLink to="/all-notes">View Notes</NavLink>
