@@ -36,7 +36,7 @@ nav.fixed .btn-container a {
         margin-top: 25px;
     }
     
-    nav.fixed .collapsible-body a {
+    nav.fixed .collapsible-body .sign-in {
         width: 100px;
         height: 75px;
         margin: 0;
@@ -45,7 +45,7 @@ nav.fixed .btn-container a {
         color: #414141;
     }
 
-    nav.fixed .collapsible-body a:hover {
+    nav.fixed .collapsible-body .sign-in:hover {
         background-color: darkgray;
     }
 }
