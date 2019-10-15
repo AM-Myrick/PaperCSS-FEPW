@@ -1,10 +1,9 @@
 .notes a {
-    width: 25%;
-    height: auto;
+    min-width: 284px;
+    max-width: 284px;
     border: 2px solid #EAEAEA;
     background-color: #FFFFFF;
-    margin: 1%;
-    margin-left: 5%;
+    margin: 1% 2.5%;
     text-align: left;
     font-size: 1.2rem;
     padding: 0 2.5%;
@@ -13,7 +12,7 @@
     height: 200px;
     overflow: hidden;
 }
-
+    
 .notes h4 {
     border-bottom: 2px solid #EAEAEA;
     padding-bottom: 5px;
@@ -22,4 +21,41 @@
 
 .notecard p {
     margin-block-start: .5em;
+}
+@media (min-width: 1000px) {
+    .notes a:nth-child(3n+1){
+        margin-left: 5%;
+    }
+    .notes a {
+        min-width: 240px;
+        max-width: 240px;
+        margin: 0;
+        margin-bottom: 8px;
+        margin-right: 1%;
+        height: auto;
+        /* height: auto;
+        border: 2px solid #EAEAEA;
+        background-color: #FFFFFF;
+        margin: 1%;
+        margin-left: 5%;
+        text-align: left;
+        font-size: 1.2rem;
+        padding: 0 2.5%;
+        text-decoration: none;
+        color: black;
+        height: 200px;
+        overflow: hidden; */
+    }
+}
+
+@media (min-width: 1100px) {
+    .notes {
+        margin: 0 auto;
+        max-width: 1300px;
+    }
+    .notes a {
+        min-width: 30%;
+        max-width: 30%;
+        height: auto;
+    }
 }

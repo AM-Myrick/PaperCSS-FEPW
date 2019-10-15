@@ -17,6 +17,7 @@ section h2 {
 section .notes {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 section .btn-container {
@@ -115,5 +116,9 @@ section h2 {
 
     section h2 {
         margin-left: 5%;
+    }
+
+    section .notes {
+        justify-content: flex-start;
     }
 }
