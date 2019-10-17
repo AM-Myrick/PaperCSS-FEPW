@@ -52,7 +52,7 @@ export default class NewNote extends Component {
                 className="new-textBody"
                 >
             </textarea>
-            <div onClick={this.addNote}>Save</div>
+            <div className="save" onClick={this.addNote}>Save</div>
             </form>
         </section>
     )
