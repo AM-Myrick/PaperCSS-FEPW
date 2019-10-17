@@ -72,7 +72,7 @@ export default class SingleNoteView extends React.Component {
                     <p>{this.state.note.content}</p>
                     <div className="delete-modal">
                         <div className="delete-menu">
-                            <p>Are you sure you want to delete this?</p>
+                            <p>Are you sure you want to delete this note?</p>
                             <div className="cancel" onClick={this.deleteToggle}>Cancel</div>
                             <div className="delete" onClick={this.deleteNote}>Delete</div>
                         </div>
