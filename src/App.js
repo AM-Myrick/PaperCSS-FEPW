@@ -8,6 +8,11 @@ import SingleNoteView from './Views/SingleNoteView';
 import UpdateNote from "./Views/UpdateNote";
 import Register from "./Views/Register";
 import Login from "./Views/Login";
+import axios from "axios";
+
+if (localStorage.getItem("access_token")) {
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem("access_token");
+}
 
 export default class App extends Component {
   render() {

@@ -29,7 +29,7 @@ export default class Navigation extends Component {
                 <nav className="fixed">
                     <h1>Paper Notes</h1>
                     <div className="collapsible">
-                        <input id="collapsible1" type="checkbox" name="collapsible1" />
+                        <input id="collapsible1" type="checkbox" name="collapsible1"/>
                         <button>
                         <label htmlFor="collapsible1">
                             <div className="bar1"></div>
@@ -37,7 +37,7 @@ export default class Navigation extends Component {
                             <div className="bar3"></div>
                         </label>
                         </button>
-                        <NavLinks width={this.state.width} />
+                        <NavLinks width={this.state.width}/>
                     </div>
                 </nav>
         )

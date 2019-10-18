@@ -16,12 +16,8 @@ class AllNotes extends Component {
     }
 
     componentDidMount() {
-        let token = localStorage.getItem("access_token")
         axios
-            .get(`${URL}/api/notes`,
-            {headers: 
-                {'Authorization': token}
-            })
+            .get(`${URL}/api/notes`)
             .then(res => {
                 this.setState({notes: res.data})
             })

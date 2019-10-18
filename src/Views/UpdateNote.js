@@ -14,12 +14,8 @@ export default class UpdateNote extends Component {
 
     updateNote = e => {
         e.preventDefault();
-        const token = localStorage.getItem("access_token");
         axios
-            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state,
-            {headers: 
-                {'Authorization': token}
-            })
+            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state)
             .then(res => {
                 this.props.history.push(`/note/${this.state.id}`)
             })
@@ -32,12 +28,8 @@ export default class UpdateNote extends Component {
       }
 
     selectNote = id => {
-        const token = localStorage.getItem("access_token");
         axios
-          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`,
-          {headers: 
-              {'Authorization': token}
-          })
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
 
