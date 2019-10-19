@@ -15,7 +15,7 @@ export default class Login extends Component {
         super(props);
         this.state = {
             user: { ...initialUser },
-            message: "",
+            message: "Welcome to Paper Notes! Please login.",
             loggedIn: false,
             notes: "",
         }
@@ -48,8 +48,8 @@ export default class Login extends Component {
             })
             .catch(err => {
                 this.setState({
-                    message: "Login failed",
-                    user: {...initialUser}
+                    ...this.state,
+                    message: "Login failed"
                 })
             });
     }
@@ -57,7 +57,7 @@ export default class Login extends Component {
     render() {
         return (
             <div className="login" onClick={() => this.props.closeMenu()}>
-                <h3>Please Login</h3>
+                <h3>{this.state.message}</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -79,9 +79,6 @@ export default class Login extends Component {
                             <button onClick={this.submitHandler}type="submit">Login</button>
                         </Link>
                 </form>
-                { this.state.message ?
-                    (<h4>{this.state.message}</h4>):
-                    undefined}
             </div>
         );
     }
