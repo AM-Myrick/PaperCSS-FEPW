@@ -73,6 +73,14 @@ nav h1 {
     line-height: 1
 }
 
+nav h1 a {
+    border: none;
+}
+
+nav h1 a:hover {
+    border: none;
+}
+
 nav .btn-container {
     display: flex;
     justify-content: center;
