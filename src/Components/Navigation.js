@@ -24,7 +24,7 @@ export default class Navigation extends Component {
             this.state.width >= 1000 ?
                 <nav>
                     <h1>Paper Notes</h1>
-                    <NavLinks width={this.state.width} />
+                    <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
                 </nav> :
                 <nav className="fixed">
                     <h1>Paper Notes</h1>
