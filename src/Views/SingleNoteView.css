@@ -1,15 +1,16 @@
+
 .single-note {
-    margin-left: 20%;
     background-color: #F2F1F2;
-    width: 80%;
-    height: 100vh;
     z-index: 0;
+    margin-top: 75px;
+    height: 100vh;
+    width: 100vw;
+    display: table;
 }
 
 .single-note .link-wrapper {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20%;
     padding-top: 20px;
 }
 
@@ -22,6 +23,7 @@
 
 .single-note .link-wrapper p {
     margin: 0;
+    margin-right: 6%;
 }
 
 .single-note .link-wrapper a:first-of-type {
@@ -31,28 +33,24 @@
 .single-note h3 {
     font-size: 1.6rem;
     color: #474747;
-    margin-top: 1%;
-    margin-left: 5%;
-    overflow: hidden;
-    margin-right: 20%;
+    margin: 1rem 5%;
 }
 
 .single-note p {
     font-size: 1.2rem;
-    margin-left: 5%;
-    overflow: hidden;
-    margin-right: 20%;
+    margin: 0 5%;
+    white-space: pre-line;
 }
 
 .single-note .delete-modal {
     z-index: 2;
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    height: 100%;
     width: 100vw;
     left: 0;
     right: 0;
     top: 0;
-    opacity: 0.75;
+    opacity: 0.95;
     background-color: #99A4Af;
     display: flex;
     justify-content: center;
@@ -64,11 +62,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 60%;
+    width: 80%;
     height: 150px;
-    margin-top: 10%;
+    margin-top: 50vh;
     z-index: 3;
     position: absolute;
+    padding-top: 1rem;
 }
 
 .single-note .delete-modal .delete-menu p {
@@ -105,4 +104,49 @@
 
 .single-note .delete-modal .delete-menu .delete {
     background-color: #CA001A;
+}
+
+@media (min-width: 769px) {
+    .single-note {
+        margin-top: 125px;
+    }
+
+    .single-note .link-wrapper p {
+        margin-right: 10%;
+    }
+
+    .single-note h3 {
+        margin: 1rem 10%;
+        margin-top: 1%;
+    }
+    
+    .single-note p {
+        margin: 0 10%;
+    }
+
+    .single-note .delete-modal .delete-menu {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .single-note {
+        margin-top: 0;
+        margin-left: 20%;
+        width: 80%;
+    }
+
+    .single-note .link-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20%;
+    }
+
+    .single-note h3 {
+        margin-right: 20%;
+    }
+
+    .single-note p {
+        margin-right: 20%;
+    }
 }

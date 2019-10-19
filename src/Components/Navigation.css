@@ -1,11 +1,67 @@
-nav {
-    width: 20%;
-    height: 100vh;
+/* TODO Update for readability */
+/* TODO Update button spacing in desktop */
+nav.fixed {
+    height: 125px;
     background-color: #D3D2D3;
     border: 1px solid black;
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
+}
+
+nav.fixed h1 {
+    margin: 0;
+}
+
+nav.fixed .btn-container {
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+}
+
+nav.fixed .btn-container a {
+    height: 75px;
+    margin: 1%;
+    margin-bottom: 0;
+    width: 33%;
+}
+
+@media (max-width: 768px) {
+    nav.fixed {
+        height: 75px;
+    }
+
+    nav.fixed .collapsible-body.btn-container {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    nav.fixed .collapsible-body a:first-of-type {
+        margin-top: 25px;
+    }
+    
+    nav.fixed .collapsible-body .sign-in {
+        width: 100px;
+        height: 75px;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        background-color: #D3D2D3;
+        color: #414141;
+    }
+
+    nav.fixed .collapsible-body .sign-in:hover {
+        background-color: darkgray;
+    }
+}
+
+@media (min-width: 1000px) {
+    nav {
+        width: 20%;
+        height: 100vh;
+        background-color: #D3D2D3;
+        border: 1px solid black;
+        position: fixed;
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 nav h1 {
@@ -21,20 +77,18 @@ nav .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 300px;
 }
 
 nav .btn-container a {
     text-decoration: none;
     background-color: #24B8BD;
     color: #FFFFFF;
-    width: 75%;
+    width: 150px;
     padding: 5%;
-    margin: 1%;
-    margin-bottom: 10%;
+    margin-bottom: 1rem;
     font-size: 1.2rem;
     text-align: center;
-    height: 15%;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;

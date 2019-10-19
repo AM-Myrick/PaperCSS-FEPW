@@ -10,12 +10,12 @@ const initialUser = {
     password: "",
 }
 
-class Login extends Component {
+export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             user: { ...initialUser },
-            message: "",
+            message: "Welcome to Paper Notes! Please login.",
             loggedIn: false,
             notes: "",
         }
@@ -32,6 +32,7 @@ class Login extends Component {
             .then(res => {
                 if (res.status === 200 && res.data) {
                     localStorage.setItem("access_token", res.data.token);
+                    axios.defaults.headers.common['Authorization'] = localStorage.getItem("access_token");
                     this.setState({
                         message: "Login successful",
                         user: {...initialUser},
@@ -48,16 +49,16 @@ class Login extends Component {
             })
             .catch(err => {
                 this.setState({
-                    message: "Login failed",
-                    user: {...initialUser}
+                    ...this.state,
+                    message: "Login failed"
                 })
             });
     }
     
     render() {
         return (
-            <div className="login">
-                <h3>Please Login</h3>
+            <div className="login" onClick={() => this.props.closeMenu()}>
+                <h3>{this.state.message}</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -79,12 +80,7 @@ class Login extends Component {
                             <button onClick={this.submitHandler}type="submit">Login</button>
                         </Link>
                 </form>
-                { this.state.message ?
-                    (<h4>{this.state.message}</h4>):
-                    undefined}
             </div>
         );
     }
 }
-
-export default Login;

@@ -14,12 +14,8 @@ export default class NewNote extends Component {
 
     addNote = e => {
         e.preventDefault();
-        let token = localStorage.getItem("access_token")
         axios
-            .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state,
-            {headers: 
-                {'Authorization': token}
-            })
+            .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state)
             .then(res => this.props.history.push('/all-notes'))
             .catch(error => console.log(error));
     }
@@ -31,7 +27,7 @@ export default class NewNote extends Component {
 
   render() {
     return (
-        <section className="new-note">
+        <section className="new-note" onClick={() => this.props.closeMenu()}>
             <h2>Create New Note:</h2>
             <form onSubmit={this.addNote}>
             <input 
@@ -52,7 +48,7 @@ export default class NewNote extends Component {
                 className="new-textBody"
                 >
             </textarea>
-            <div onClick={this.addNote}>Save</div>
+            <div className="save" onClick={this.addNote}>Save</div>
             </form>
         </section>
     )

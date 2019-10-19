@@ -8,18 +8,59 @@ import SingleNoteView from './Views/SingleNoteView';
 import UpdateNote from "./Views/UpdateNote";
 import Register from "./Views/Register";
 import Login from "./Views/Login";
+import axios from "axios";
+
+if (localStorage.getItem("access_token")) {
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem("access_token");
+}
 
 export default class App extends Component {
+
+  closeMenu = () => {
+    const hamburgerMenu = document.querySelector("#collapsible1");
+    if (hamburgerMenu && hamburgerMenu.checked) {
+      hamburgerMenu.checked = false;
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Route path="/" component={Navigation} />
-        <Route exact path="/" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/all-notes" component={AllNotes} />
-        <Route exact path="/add-note" component={NewNote} />
-        <Route path={`/note/:id`} component={SingleNoteView} />
-        <Route path={`/edit/:id`} component={UpdateNote} />
+        <Route path="/" 
+          render={(props) => <Navigation 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route exact path="/" 
+          render={(props) => <Register 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route exact path="/login" 
+          render={(props) => <Login 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route exact path="/all-notes" 
+          render={(props) => <AllNotes 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route exact path="/add-note" 
+          render={(props) => <NewNote 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route path={`/note/:id`} 
+          render={(props) => <SingleNoteView 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
+        <Route path={`/edit/:id`} 
+          render={(props) => <UpdateNote 
+            {...props} 
+            closeMenu={this.closeMenu} />}
+        />
       </div>
     )
   }

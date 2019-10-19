@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import "./UpdateNote.css";
 
 export default class UpdateNote extends Component {
     constructor(props) {
@@ -14,12 +13,8 @@ export default class UpdateNote extends Component {
 
     updateNote = e => {
         e.preventDefault();
-        const token = localStorage.getItem("access_token");
         axios
-            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state,
-            {headers: 
-                {'Authorization': token}
-            })
+            .put(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`, this.state)
             .then(res => {
                 this.props.history.push(`/note/${this.state.id}`)
             })
@@ -32,12 +27,8 @@ export default class UpdateNote extends Component {
       }
 
     selectNote = id => {
-        const token = localStorage.getItem("access_token");
         axios
-          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`,
-          {headers: 
-              {'Authorization': token}
-          })
+          .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
           .then(res => this.setState({title: res.data.title, content: res.data.content, id: res.data.id}))
           .catch(err => console.log(err));
 
@@ -50,7 +41,7 @@ export default class UpdateNote extends Component {
 
   render() {
     return (
-        <section className="new-note">
+        <section className="new-note" onClick={() => this.props.closeMenu()}>
             <h2>Edit Note:</h2>
             <form onSubmit={this.updateNote}>
             <input 
@@ -71,7 +62,7 @@ export default class UpdateNote extends Component {
                 className="new-textBody"
                 >
             </textarea>
-            <div onClick={this.updateNote}>Save Edits</div>
+            <div className="save" onClick={this.updateNote}>Save Edits</div>
             </form>
         </section>
     )
