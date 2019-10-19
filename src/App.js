@@ -18,7 +18,7 @@ export default class App extends Component {
 
   closeMenu = () => {
     const hamburgerMenu = document.querySelector("#collapsible1");
-    if (hamburgerMenu.checked) {
+    if (hamburgerMenu && hamburgerMenu.checked) {
       hamburgerMenu.checked = false;
     }
   }
