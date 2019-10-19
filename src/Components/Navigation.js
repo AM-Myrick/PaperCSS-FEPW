@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import "./Navigation.css"
 
@@ -23,11 +24,11 @@ export default class Navigation extends Component {
         return (
             this.state.width >= 1000 ?
                 <nav>
-                    <h1>Paper Notes</h1>
+                    <Link to="/all-notes"><h1>Paper Notes</h1></Link>
                     <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
                 </nav> :
                 <nav className="fixed">
-                    <h1>Paper Notes</h1>
+                    <Link to="/all-notes"><h1>Paper Notes</h1></Link>
                     <div className="collapsible">
                         <input id="collapsible1" type="checkbox" name="collapsible1"/>
                         <button>
