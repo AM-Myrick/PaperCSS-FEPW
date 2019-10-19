@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import "./UpdateNote.css";
 
 export default class UpdateNote extends Component {
     constructor(props) {
@@ -63,7 +62,7 @@ export default class UpdateNote extends Component {
                 className="new-textBody"
                 >
             </textarea>
-            <div onClick={this.updateNote}>Save Edits</div>
+            <div className="save" onClick={this.updateNote}>Save Edits</div>
             </form>
         </section>
     )
