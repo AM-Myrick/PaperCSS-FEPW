@@ -44,3 +44,9 @@
     color: #24B8BD;
     width: 160px;
 }
+
+@media (min-width: 640px) {
+    .login h3 {
+        margin: 0;
+    }
+}

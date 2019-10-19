@@ -14,7 +14,7 @@ export default class Register extends Component {
         super(props);
         this.state = {
             user: { ...initialUser },
-            message: "",
+            message: "Welcome to Paper Notes! Please register.",
         }
     }
 
@@ -48,7 +48,7 @@ export default class Register extends Component {
     render() {
         return (
             <div className="register" onClick={() => this.props.closeMenu()}>
-                <h3>Please Register</h3>
+                <h3>{this.state.message}</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -68,9 +68,6 @@ export default class Register extends Component {
                         onChange={this.changeHandler} />
                     <button type="submit">Register</button>
                 </form>
-                { this.state.message ?
-                    (<h4>{this.state.message}</h4>):
-                    undefined}
             </div>
         );
     }
