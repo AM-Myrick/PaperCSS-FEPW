@@ -9,7 +9,7 @@ const initialUser = {
     password: "",
 }
 
-class Register extends Component {
+export default class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,7 +47,7 @@ class Register extends Component {
     
     render() {
         return (
-            <div className="register">
+            <div className="register" onClick={() => this.props.closeMenu()}>
                 <h3>Please Register</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
@@ -75,5 +75,3 @@ class Register extends Component {
         );
     }
 }
-
-export default Register;

@@ -67,7 +67,7 @@ class AllNotes extends Component {
   render() {
     return (
         this.state.notes ?
-        <section>
+        <section onClick={() => this.props.closeMenu()}>
             <div className="btn-container">
                 <CSVLink download="mynotes.csv" data={this.state.notes} headers={this.headers}>
                     Download your notes!

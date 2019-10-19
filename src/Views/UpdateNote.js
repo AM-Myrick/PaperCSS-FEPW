@@ -42,7 +42,7 @@ export default class UpdateNote extends Component {
 
   render() {
     return (
-        <section className="new-note">
+        <section className="new-note" onClick={() => this.props.closeMenu()}>
             <h2>Edit Note:</h2>
             <form onSubmit={this.updateNote}>
             <input 

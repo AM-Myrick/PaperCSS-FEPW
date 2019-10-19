@@ -10,7 +10,7 @@ const initialUser = {
     password: "",
 }
 
-class Login extends Component {
+export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,7 +56,7 @@ class Login extends Component {
     
     render() {
         return (
-            <div className="login">
+            <div className="login" onClick={() => this.props.closeMenu()}>
                 <h3>Please Login</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="username">Username:</label>
@@ -86,5 +86,3 @@ class Login extends Component {
         );
     }
 }
-
-export default Login;

@@ -29,14 +29,8 @@ export default class SingleNoteView extends React.Component {
 
       deleteToggle = e => {
           e.preventDefault();
+          this.props.closeMenu();
           this.setState({delete: !this.state.delete})
-      }
-
-      deleteModalOff = e => {
-          e.preventDefault();
-          return this.state.delete === true ? 
-            this.setState({delete: false}) :
-            null;
       }
 
       deleteNote = e => {
@@ -54,7 +48,7 @@ export default class SingleNoteView extends React.Component {
                     <p>Loading...</p>
                 </div> :
             this.state.delete ? 
-                <div className="single-note" onClick={this.deleteModalOff}>
+                <div className="single-note" onClick={(e) => this.deleteToggle(e)}>
                     <div className="link-wrapper">
                         <Link to={`/edit/${this.state.note.id}`}>edit</Link>
                         <p onClick={this.deleteToggle}>delete</p>
@@ -69,10 +63,10 @@ export default class SingleNoteView extends React.Component {
                         </div>
                     </div>
                 </div> :
-            <div className="single-note">
+            <div className="single-note" onClick={() => this.props.closeMenu()}>
                 <div className="link-wrapper">
                     <Link to={`/edit/${this.state.note.id}`}>edit</Link>
-                    <p onClick={this.deleteToggle}>delete</p>
+                    <p onClick={(e) => this.deleteToggle(e)}>delete</p>
                 </div>
                 <h3>{this.state.note.title}</h3>
                 <p>{this.state.note.content}</p>

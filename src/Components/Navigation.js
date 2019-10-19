@@ -37,7 +37,7 @@ export default class Navigation extends Component {
                             <div className="bar3"></div>
                         </label>
                         </button>
-                        <NavLinks width={this.state.width}/>
+                        <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
                     </div>
                 </nav>
         )
