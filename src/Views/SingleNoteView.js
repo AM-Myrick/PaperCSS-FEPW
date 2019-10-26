@@ -8,6 +8,7 @@ export default class SingleNoteView extends React.Component {
     super(props);
     this.state = {
       note: 0,
+      noteIndex: "",
       delete: false
     };
   }
@@ -16,13 +17,16 @@ export default class SingleNoteView extends React.Component {
     const id = this.props.match.params.id;
     const token = localStorage.getItem("access_token");
     let notes = JSON.parse(localStorage.getItem("paper_notes"));
-    let note = notes.map(note => {
-      if (id === note.id) {
-        return note;
-      }
-    });
-    note = note[0] === undefined ? null : note[0];
-    this.fetchNote(id, token, note);
+    if (notes !== null) {
+      let note = notes.filter((note, noteIndex) => {
+        this.setState({ noteIndex });
+        return id === note.id;
+      });
+      note = note[0] === undefined ? null : note[0];
+      this.fetchNote(id, token, note);
+    } else {
+      this.fetchNote(id, token, null);
+    }
   }
 
   fetchNote = (id, token, note) => {
@@ -31,10 +35,11 @@ export default class SingleNoteView extends React.Component {
         .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
         .then(res => {
           this.setState({ note: res.data });
+          return;
         })
         .catch(err => console.log(err));
     } else if (note === null) {
-    //   TODO
+      //   TODO
     } else {
       this.setState({
         note: { id: note.id, title: note.title, content: note.content }
@@ -48,14 +53,21 @@ export default class SingleNoteView extends React.Component {
     this.setState({ delete: !this.state.delete });
   };
 
-  deleteNote = e => {
+  deleteNote = (e, token) => {
     e.preventDefault();
-    axios
-      .delete(
-        `https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`
-      )
-      .then(res => this.props.history.push("/"))
-      .catch(err => console.log(err));
+    if (token) {
+      axios
+        .delete(
+          `https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`
+        )
+        .then(res => this.props.history.push("/"))
+        .catch(err => console.log(err));
+    } else {
+      let notes = JSON.parse(localStorage.getItem("paper_notes"));
+      notes = notes.filter((_, index) => index !== this.state.noteIndex);
+      localStorage.setItem("paper_notes", JSON.stringify(notes));
+      this.props.history.push("/")
+    }
   };
 
   render() {
@@ -77,7 +89,16 @@ export default class SingleNoteView extends React.Component {
             <div className="cancel" onClick={this.deleteToggle}>
               Cancel
             </div>
-            <div className="delete" onClick={this.deleteNote}>
+            <div
+              className="delete"
+              onClick={e =>
+                this.deleteNote(
+                  e,
+                  localStorage.getItem("access_token"),
+                  this.state.noteIndex
+                )
+              }
+            >
               Delete
             </div>
           </div>
