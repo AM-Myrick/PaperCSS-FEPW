@@ -22,16 +22,17 @@ class AllNotes extends Component {
 
   getNotes = (token, notes) => {
     if (token === null && notes === null) {
-      const instructions = `
+      const content = `
           How to use this site:
 
           If you create notes without being logged in, they'll be saved to local storage.
+
           If you create an account while you have notes in local storage, they'll be saved to your new account and removed from local storage.
 
           Thanks for checking out my project! If you're interested in seeing more or contacting me, go to <a href="https://youwontregrethiring.me">my portfolio</a>.
           `;
       const notes = [
-        { id: "note-1", title: "Welcome to Paper Notes", content: instructions }
+        { id: "note-1", title: "Welcome to Paper Notes", content }
       ];
 
       localStorage.setItem("paper_notes", JSON.stringify(notes));
