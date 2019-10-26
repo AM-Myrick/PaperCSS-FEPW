@@ -22,8 +22,6 @@ export default class SingleNoteView extends React.Component {
       }
     });
     note = note[0] === undefined ? null : note[0];
-    console.log(note);
-
     this.fetchNote(id, token, note);
   }
 

@@ -29,7 +29,7 @@ class AllNotes extends Component {
 
           If you create an account while you have notes in local storage, they'll be saved to your new account and removed from local storage.
 
-          Thanks for checking out my project! If you're interested in seeing more or contacting me, go to <a href="https://youwontregrethiring.me">my portfolio</a>.
+          Thanks for checking out my project! If you're interested in seeing more or contacting me, go to https://youwontregrethiring.me.
           `;
       const notes = [
         { id: "note-1", title: "Welcome to Paper Notes", content }
