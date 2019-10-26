@@ -94,8 +94,7 @@ export default class SingleNoteView extends React.Component {
               onClick={e =>
                 this.deleteNote(
                   e,
-                  localStorage.getItem("access_token"),
-                  this.state.noteIndex
+                  localStorage.getItem("access_token")
                 )
               }
             >
