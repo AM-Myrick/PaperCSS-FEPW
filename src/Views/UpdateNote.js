@@ -13,7 +13,7 @@ export default class UpdateNote extends Component {
   }
 
   updateNote = e => {
-      e.preventDefault();
+    e.preventDefault();
     const token = localStorage.getItem("access_token");
     if (token) {
       axios
@@ -77,7 +77,7 @@ export default class UpdateNote extends Component {
     return (
       <section className="new-note" onClick={() => this.props.closeMenu()}>
         <h2>Edit Note:</h2>
-        <form onSubmit={(e) => this.updateNote(e)}>
+        <form onSubmit={e => this.updateNote(e)}>
           <input
             onChange={this.changeHandler}
             type="text"
