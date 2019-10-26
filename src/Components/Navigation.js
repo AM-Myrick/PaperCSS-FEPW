@@ -24,11 +24,11 @@ export default class Navigation extends Component {
         return (
             this.state.width >= 1000 ?
                 <nav>
-                    <h1><Link to="/all-notes">Paper Notes</Link></h1>
+                    <h1><Link to="/">Paper Notes</Link></h1>
                     <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
                 </nav> :
                 <nav className="fixed">
-                    <h1><Link to="/all-notes">Paper Notes</Link></h1>
+                    <h1><Link to="/">Paper Notes</Link></h1>
                     <div className="collapsible">
                         <input id="collapsible1" type="checkbox" name="collapsible1"/>
                         <button>

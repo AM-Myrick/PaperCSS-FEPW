@@ -15,7 +15,7 @@ const NavLinks = props => {
         </div> :
         <div className={props.width <= 768 ? "collapsible-body btn-container" : "btn-container"}
             onClick={() => props.closeMenu()}>
-            <NavLink to="/all-notes">View Notes</NavLink>
+            <NavLink to="/">View Notes</NavLink>
             <NavLink to="/add-note">Add Note</NavLink>
             <NavLink to="/login" onClick={() => logout()}>Logout</NavLink>
         </div>

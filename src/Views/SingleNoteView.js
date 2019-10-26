@@ -37,7 +37,7 @@ export default class SingleNoteView extends React.Component {
           e.preventDefault();
           axios
             .delete(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.note.id}`)
-            .then(res => this.props.history.push("/all-notes"))
+            .then(res => this.props.history.push("/"))
             .catch(err => console.log(err))
       }
 

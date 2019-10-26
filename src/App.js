@@ -6,8 +6,6 @@ import NewNote from "./Views/NewNote"
 import './App.css';
 import SingleNoteView from './Views/SingleNoteView';
 import UpdateNote from "./Views/UpdateNote";
-import Register from "./Views/Register";
-import Login from "./Views/Login";
 import axios from "axios";
 
 if (localStorage.getItem("access_token")) {
@@ -32,16 +30,6 @@ export default class App extends Component {
             closeMenu={this.closeMenu} />}
         />
         <Route exact path="/" 
-          render={(props) => <Register 
-            {...props} 
-            closeMenu={this.closeMenu} />}
-        />
-        <Route exact path="/login" 
-          render={(props) => <Login 
-            {...props} 
-            closeMenu={this.closeMenu} />}
-        />
-        <Route exact path="/all-notes" 
           render={(props) => <AllNotes 
             {...props} 
             closeMenu={this.closeMenu} />}

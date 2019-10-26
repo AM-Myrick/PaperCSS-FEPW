@@ -16,7 +16,7 @@ export default class NewNote extends Component {
         e.preventDefault();
         axios
             .post("https://nameless-cliffs-24621.herokuapp.com/api/notes/", this.state)
-            .then(res => this.props.history.push('/all-notes'))
+            .then(res => this.props.history.push('/'))
             .catch(error => console.log(error));
     }
 

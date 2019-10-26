@@ -40,7 +40,7 @@ export default class Login extends Component {
                         loggedIn: true
                     })
                     this.props.history.push({
-                        pathname: "/all-notes",
+                        pathname: "/",
                         state: this.state,    
                     })
                 } else {
@@ -76,7 +76,7 @@ export default class Login extends Component {
                         className="input"
                         value={this.state.user.password}
                         onChange={this.changeHandler} />
-                        <Link to="/all-notes">
+                        <Link to="/">
                             <button onClick={this.submitHandler}type="submit">Login</button>
                         </Link>
                 </form>
