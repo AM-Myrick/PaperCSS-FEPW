@@ -2,11 +2,12 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 const NavLinks = props => {
-    const token = localStorage.getItem("access_token") || null;
+    const token = localStorage.getItem("access_token");
+    const notes = localStorage.getItem("paper_notes");
     const logout = () => localStorage.removeItem("access_token")
 
     return (
-        token === null ?    
+        token === null && notes === null ?    
         <div className={props.width <= 768 ? "collapsible-body btn-container" : "btn-container"}
             onClick={() => props.closeMenu()}>
             <NavLink className="sign-in" to="/">Register</NavLink>
