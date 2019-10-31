@@ -32,7 +32,7 @@ export default class Login extends Component {
             .then(res => {
                 if (res.status === 200 && res.data) {
                     localStorage.setItem("access_token", res.data.token);
-                    axios.defaults.headers.common['Authorization'] = localStorage.getItem("access_token");
+                    axios.defaults.headers.common['Authorization'] = res.data.token;
                     this.setState({
                         message: "Login successful",
                         user: {...initialUser},

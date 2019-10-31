@@ -17,7 +17,7 @@ nav.fixed .btn-container {
     margin-bottom: 0;
 }
 
-nav.fixed .btn-container a {
+nav.fixed .btn-container a, nav.fixed .btn-container .nav-button {
     height: 75px;
     margin: 1%;
     margin-bottom: 0;
@@ -87,7 +87,7 @@ nav .btn-container {
     flex-wrap: wrap;
 }
 
-nav .btn-container a {
+nav .btn-container a, nav .btn-container .nav-button {
     text-decoration: none;
     background-color: #24B8BD;
     color: #FFFFFF;
@@ -100,8 +100,13 @@ nav .btn-container a {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: none;
+    border-bottom: 5px solid #41403e;
+    border-bottom-left-radius: 15px 3px;
+    border-bottom-right-radius: 15px 5px;
 }
 
-nav .btn-container a:hover {
+nav .btn-container a:hover, nav .btn-container .nav-button:hover {
     background-color: #14696C;
+    border-bottom: 5px solid #c1c0bd;
 }

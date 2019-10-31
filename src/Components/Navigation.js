@@ -25,7 +25,8 @@ export default class Navigation extends Component {
             this.state.width >= 1000 ?
                 <nav>
                     <h1><Link to="/">Paper Notes</Link></h1>
-                    <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
+                    <NavLinks width={this.state.width} closeMenu={this.props.closeMenu} showRegisterModal={this.props.showRegisterModal}
+            showLoginModal={this.props.showLoginModal}/>
                 </nav> :
                 <nav className="fixed">
                     <h1><Link to="/">Paper Notes</Link></h1>
@@ -38,7 +39,8 @@ export default class Navigation extends Component {
                             <div className="bar3"></div>
                         </label>
                         </button>
-                        <NavLinks width={this.state.width} closeMenu={this.props.closeMenu}/>
+                        <NavLinks width={this.state.width} closeMenu={this.props.closeMenu} showRegisterModal={this.props.showRegisterModal}
+            showLoginModal={this.props.showLoginModal}/>
                     </div>
                 </nav>
         )
