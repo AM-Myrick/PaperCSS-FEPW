@@ -28,7 +28,7 @@ export default class Modal extends Component {
 
     loginHandler = (e) => {
         e.preventDefault();
-        const notes = JSON.parse(localStorage.getItem("paper_notes"));
+        const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
         axios.post(`${URL}/api/login`, { state: this.state.user, notes })
             .then(res => {
                 if (res.status === 200 && res.data) {
@@ -40,6 +40,7 @@ export default class Modal extends Component {
                         notes: res.data.notes,
                         loggedIn: true
                     })
+                    localStorage.removeItem("paper_notes");
                     this.props.history.push({
                         pathname: "/",
                         state: this.state,    
@@ -58,14 +59,16 @@ export default class Modal extends Component {
 
     registerHandler = (e) => {
         e.preventDefault();
-        const notes = JSON.parse(localStorage.getItem("paper_notes"));
+        const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
         axios.post(`${URL}/api/register`, { state: this.state.user, notes })
             .then(res => {
                 if (res.data) {
+                    localStorage.setItem("access_token", res.data.token);
                     this.setState({
                         message: "Registration successful",
                         user: {...initialUser}
                     })
+                    localStorage.removeItem("paper_notes");
                     this.props.history.push('/');
                 } else {
                     throw new Error();
@@ -82,9 +85,9 @@ export default class Modal extends Component {
     render() {
         return (
             this.props.show ?
-                <div className="card" onClick={() => this.props.closeMenu()}>
+                <div className="card card-modal">
                     <div className="card-body">
-                    <h3 className="card-title">{this.state.message}</h3>
+                        <h3 className="card-title">{this.state.message}</h3>
                         <form onSubmit={this.submitHandler}>
                             <label htmlFor="username">Username:</label>
                             <input 
@@ -104,7 +107,7 @@ export default class Modal extends Component {
                                 onChange={this.changeHandler} />
                                 { this.props.view === "login" ?
                                     <Link to="/">
-                                        <button onClick={this.loginHandler}type="submit">Login</button>
+                                        <button onClick={() => this.loginHandler()}type="submit">Login</button>
                                     </Link>:
                                     <Link to="/">
                                         <button onClick={this.registerHandler}type="submit">Register</button>

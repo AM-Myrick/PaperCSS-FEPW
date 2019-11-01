@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Modal from "../Views/Modal";
 
 const token = localStorage.getItem("access_token");
 export default class NavLinks extends React.Component {

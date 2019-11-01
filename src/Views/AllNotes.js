@@ -117,7 +117,7 @@ If you're interested in seeing more or contacting me, go to https://youwontregre
         </div>
       </section>
     ) : (
-      <h3>Your Notes are loading...</h3>
+      <h3 className="loading-message">Your Notes are loading...</h3>
     );
   }
 }
