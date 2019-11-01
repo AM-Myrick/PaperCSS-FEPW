@@ -29,7 +29,7 @@ export default class Modal extends Component {
     loginHandler = (e) => {
         e.preventDefault();
         const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
-        axios.post(`${URL}/api/login`, { state: this.state.user, notes })
+        axios.post(`${URL}/api/login`, { creds: this.state.user, notes })
             .then(res => {
                 if (res.status === 200 && res.data) {
                     localStorage.setItem("access_token", res.data.token);
@@ -60,7 +60,7 @@ export default class Modal extends Component {
     registerHandler = (e) => {
         e.preventDefault();
         const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
-        axios.post(`${URL}/api/register`, { state: this.state.user, notes })
+        axios.post(`${URL}/api/register`, { creds: this.state.user, notes })
             .then(res => {
                 if (res.data) {
                     localStorage.setItem("access_token", res.data.token);
@@ -107,10 +107,10 @@ export default class Modal extends Component {
                                 onChange={this.changeHandler} />
                                 { this.props.view === "login" ?
                                     <Link to="/">
-                                        <button onClick={() => this.loginHandler()}type="submit">Login</button>
+                                        <button onClick={(e) => this.loginHandler(e)}type="submit">Login</button>
                                     </Link>:
                                     <Link to="/">
-                                        <button onClick={this.registerHandler}type="submit">Register</button>
+                                        <button onClick={(e) => this.registerHandler(e)}type="submit">Register</button>
                                     </Link>
                                 }
                         </form>
