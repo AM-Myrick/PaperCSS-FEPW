@@ -85,6 +85,7 @@ nav .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0;
 }
 
 nav .btn-container a, nav .btn-container .nav-button {
