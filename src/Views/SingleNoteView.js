@@ -68,7 +68,7 @@ export default class SingleNoteView extends React.Component {
       let notes = JSON.parse(localStorage.getItem("paper_notes"));
       notes = notes.filter((_, index) => index !== this.state.noteIndex);
       localStorage.setItem("paper_notes", JSON.stringify(notes));
-      this.props.history.push("/")
+      this.props.history.push("/");
     }
   };
 
@@ -94,10 +94,7 @@ export default class SingleNoteView extends React.Component {
             <div
               className="delete"
               onClick={e =>
-                this.deleteNote(
-                  e,
-                  localStorage.getItem("access_token")
-                )
+                this.deleteNote(e, localStorage.getItem("access_token"))
               }
             >
               Delete

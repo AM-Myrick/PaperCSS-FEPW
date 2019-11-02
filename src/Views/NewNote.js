@@ -22,14 +22,13 @@ export default class NewNote extends Component {
         )
         .then(res => this.props.history.push("/"))
         .catch(error => console.log(error));
-    }
-    else {
-        const notes = JSON.parse(localStorage.getItem("paper_notes"));
-        const { title, content } = this.state;
-        const newNote = { id: `note-${notes.length + 1}`, title, content };
-        notes.push(newNote);
-        localStorage.setItem("paper_notes", JSON.stringify(notes))
-        this.props.history.push("/");
+    } else {
+      const notes = JSON.parse(localStorage.getItem("paper_notes"));
+      const { title, content } = this.state;
+      const newNote = { id: `note-${notes.length + 1}`, title, content };
+      notes.push(newNote);
+      localStorage.setItem("paper_notes", JSON.stringify(notes));
+      this.props.history.push("/");
     }
   };
 

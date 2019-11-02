@@ -30,7 +30,7 @@ export default class App extends Component {
       hamburgerMenu.checked = false;
     }
     if (this.state.showModal === true) {
-       this.setState({ showModal: !this.state.showModal });
+      this.setState({ showModal: !this.state.showModal });
     }
   };
 

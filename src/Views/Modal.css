@@ -1,37 +1,37 @@
 .card-modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #24B8BD;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #24b8bd;
 }
 
 .card-modal:hover {
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .card-modal .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-modal .card-body .card-title {
-    color: #FFF;
+  color: #fff;
 }
 
 .card-modal .card-body form {
-    color: #FFF;
+  color: #fff;
 }
 
 .card-modal .card-body form input {
-    border: 2px solid #FFF;
-    margin-bottom: 0.5rem;
+  border: 2px solid #fff;
+  margin-bottom: 0.5rem;
 }
 
 .card-modal .card-body form button {
-    width: 100%;
-    color: #FFF;
-    border: 2px solid #FFF;
+  width: 100%;
+  color: #fff;
+  border: 2px solid #fff;
 }

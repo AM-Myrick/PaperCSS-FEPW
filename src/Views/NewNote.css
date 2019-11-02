@@ -1,99 +1,100 @@
 .new-note {
-    background-color: #F2F1F2;
-    margin-top: 75px;
+  background-color: #f2f1f2;
+  margin-top: 75px;
 }
 
 .new-note h2 {
-    font-size: 1.6rem;
-    color: #474747;
-    margin: 0 5%;
-    margin-top: 1rem;
+  font-size: 1.6rem;
+  color: #474747;
+  margin: 0 5%;
+  margin-top: 1rem;
 }
 
 .new-note input {
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin: 0 5%;
-    margin-top: 1rem;
-    width: 90%;
-    padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin: 0 5%;
+  margin-top: 1rem;
+  width: 90%;
+  padding: 1%;
 }
 
-.new-note input:focus, .new-note textarea:focus {
-    border: 2px solid #24B8BD;
+.new-note input:focus,
+.new-note textarea:focus {
+  border: 2px solid #24b8bd;
 }
 
 .new-note textarea {
-    margin: 0 5%;
-    margin-top: 1rem;
-    width: 90%;
-    height: 250px;
-    padding: 1% 1.5%;
-    border-radius: 5px;
+  margin: 0 5%;
+  margin-top: 1rem;
+  width: 90%;
+  height: 250px;
+  padding: 1% 1.5%;
+  border-radius: 5px;
 }
 
 .new-note .save {
-    text-decoration: none;
-    background-color: #24B8BD;
-    color: #FFFFFF;
-    width: 20%;
-    padding: 1%;
-    margin: 1%;
-    margin-left: 5%;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
-    cursor: pointer;
-    border-bottom: 5px solid #41403e;
-    border-bottom-left-radius: 15px 3px;
-    border-bottom-right-radius: 15px 5px;
+  text-decoration: none;
+  background-color: #24b8bd;
+  color: #ffffff;
+  width: 20%;
+  padding: 1%;
+  margin: 1%;
+  margin-left: 5%;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 5px solid #41403e;
+  border-bottom-left-radius: 15px 3px;
+  border-bottom-right-radius: 15px 5px;
 }
 
 .new-note div:hover {
-    background-color: #14696C;
+  background-color: #14696c;
 }
 
 @media (min-width: 575px) {
-    .new-note h2 {
-        margin: 0 10%;
-        margin-top: 1rem;
-    }
-    
-    .new-note input {
-        margin: 0 10%;
-        margin-top: 1rem;
-        width: 75%;
-    }
-    
-    .new-note textarea {
-        margin: 0 10%;
-        margin-top: 1rem;
-        width: 75%;
-    }
+  .new-note h2 {
+    margin: 0 10%;
+    margin-top: 1rem;
+  }
 
-    .new-note .save {
-        margin-left: 10%;
-    }
+  .new-note input {
+    margin: 0 10%;
+    margin-top: 1rem;
+    width: 75%;
+  }
+
+  .new-note textarea {
+    margin: 0 10%;
+    margin-top: 1rem;
+    width: 75%;
+  }
+
+  .new-note .save {
+    margin-left: 10%;
+  }
 }
 
 @media (min-width: 769px) {
-    .new-note {
-        margin-top: 125px;
-    }
+  .new-note {
+    margin-top: 125px;
+  }
 }
 
 @media (min-width: 1000px) {
-    .new-note {
-        margin-top: 0;
-        width: 80%;
-        margin-left: 20%;
-    }
+  .new-note {
+    margin-top: 0;
+    width: 80%;
+    margin-left: 20%;
+  }
 
-    .new-note input {
-        width: 600px;
-    }
-    
-    .new-note textarea {
-        width: 600px;
-    }
+  .new-note input {
+    width: 600px;
+  }
+
+  .new-note textarea {
+    width: 600px;
+  }
 }
