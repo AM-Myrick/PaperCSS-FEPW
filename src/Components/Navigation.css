@@ -105,6 +105,7 @@ nav .btn-container a, nav .btn-container .nav-button {
     border-bottom: 5px solid #41403e;
     border-bottom-left-radius: 15px 3px;
     border-bottom-right-radius: 15px 5px;
+    cursor: pointer;
 }
 
 nav .btn-container a:hover, nav .btn-container .nav-button:hover {
