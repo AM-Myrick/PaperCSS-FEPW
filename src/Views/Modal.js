@@ -43,7 +43,7 @@ export default class Modal extends Component {
             loggedIn: true
           });
           if (window.location.pathname !== "/") {
-            window.location.href = window.location.host;
+            window.location.replace(window.location.origin);
           } else {
             window.location.reload();
           }
