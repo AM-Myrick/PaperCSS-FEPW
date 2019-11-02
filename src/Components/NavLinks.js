@@ -13,6 +13,7 @@ export default class NavLinks extends React.Component {
     ];
     localStorage.setItem("paper_notes", JSON.stringify(notes));
     localStorage.removeItem("access_token");
+    window.location.replace(window.location.origin);
   };
 
   render() {
