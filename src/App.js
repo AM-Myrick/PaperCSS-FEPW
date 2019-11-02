@@ -80,6 +80,7 @@ export default class App extends Component {
           show={this.state.showModal}
           view={this.state.showModalVersion}
           closeMenu={this.closeMenu}
+          showLoginModal={this.showLoginModal}
         />
       </div>
     );

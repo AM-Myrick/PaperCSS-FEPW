@@ -28,10 +28,11 @@ export default class Modal extends Component {
 
     loginHandler = (e) => {
         e.preventDefault();
-        const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
+        const notes = JSON.parse(localStorage.getItem("paper_notes")) || [];
         axios.post(`${URL}/api/login`, { creds: this.state.user, notes })
             .then(res => {
                 if (res.status === 200 && res.data) {
+                    localStorage.removeItem("paper_notes");
                     localStorage.setItem("access_token", res.data.token);
                     axios.defaults.headers.common['Authorization'] = res.data.token;
                     this.setState({
@@ -40,11 +41,7 @@ export default class Modal extends Component {
                         notes: res.data.notes,
                         loggedIn: true
                     })
-                    localStorage.removeItem("paper_notes");
-                    this.props.history.push({
-                        pathname: "/",
-                        state: this.state,    
-                    })
+                    window.location.reload();
                 } else {
                     throw new Error();
                 }
@@ -59,17 +56,15 @@ export default class Modal extends Component {
 
     registerHandler = (e) => {
         e.preventDefault();
-        const notes = JSON.parse(localStorage.getItem("paper_notes")) || null;
+        const notes = JSON.parse(localStorage.getItem("paper_notes")) || [];
         axios.post(`${URL}/api/register`, { creds: this.state.user, notes })
             .then(res => {
                 if (res.data) {
-                    localStorage.setItem("access_token", res.data.token);
                     this.setState({
                         message: "Registration successful",
                         user: {...initialUser}
                     })
-                    localStorage.removeItem("paper_notes");
-                    this.props.history.push('/');
+                    this.props.showLoginModal();
                 } else {
                     throw new Error();
                 }
