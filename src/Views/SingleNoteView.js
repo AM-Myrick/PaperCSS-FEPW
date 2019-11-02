@@ -21,8 +21,8 @@ export default class SingleNoteView extends React.Component {
       let note = notes.filter((note, noteIndex) => {
         if (id === note.id) {
           this.setState({ noteIndex });
-          return id === note.id;
         }
+        return id === note.id;
       });
       note = note[0] === undefined ? null : note[0];
       this.fetchNote(id, token, note);

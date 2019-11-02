@@ -85,7 +85,8 @@ nav .btn-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0;
+    margin: 0 auto;
+    width: 150px;
 }
 
 nav .btn-container a, nav .btn-container .nav-button {
@@ -106,6 +107,8 @@ nav .btn-container a, nav .btn-container .nav-button {
     border-bottom-left-radius: 15px 3px;
     border-bottom-right-radius: 15px 5px;
     cursor: pointer;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 nav .btn-container a:hover, nav .btn-container .nav-button:hover {
