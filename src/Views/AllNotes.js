@@ -48,7 +48,33 @@ If you're interested in seeing more or contacting me, go to https://youwontregre
           console.log(error);
         });
     } else {
-      this.setState({ notes: JSON.parse(notes) });
+      notes = JSON.parse(notes);
+      const counter = {};
+
+      for (let note of notes) {
+        if (counter[note.id]) {
+          counter[note.id]++;
+          continue;
+        }
+        counter[note.id] = 1;
+      }
+      
+      notes = notes.map((note) => {
+        while (counter[note.id] > 1) {
+          const newNoteId = parseInt(note.id[note.id.length - 1]);
+          counter[note.id]--;
+          note.id = `note-${newNoteId + 1}`
+          if (counter[note.id]) {
+            counter[note.id]++;
+            continue;
+          }
+          counter[note.id] = 1;
+        }
+        return note;
+      })
+
+      localStorage.setItem("paper_notes", JSON.stringify(notes));
+      this.setState({ notes });
     }
   };
 
