@@ -42,7 +42,11 @@ export default class Modal extends Component {
             notes: res.data.notes,
             loggedIn: true
           });
-          window.location.reload();
+          if (window.location.pathname !== "/") {
+            window.location.href = window.location.host;
+          } else {
+            window.location.reload();
+          }
         } else {
           throw new Error();
         }
