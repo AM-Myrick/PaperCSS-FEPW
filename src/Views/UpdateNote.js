@@ -17,10 +17,7 @@ export default class UpdateNote extends Component {
     const token = localStorage.getItem("access_token");
     if (token) {
       axios
-        .put(
-          `https://nameless-cliffs-24621.herokuapp.com/api/notes/${this.state.id}`,
-          this.state
-        )
+        .put(`/api/notes/${this.state.id}`, this.state)
         .then(res => {
           this.props.history.push(`/note/${this.state.id}`);
         })
@@ -53,7 +50,7 @@ export default class UpdateNote extends Component {
   selectNote = (id, token, note) => {
     if (token) {
       axios
-        .get(`https://nameless-cliffs-24621.herokuapp.com/api/notes/${id}`)
+        .get(`/api/notes/${id}`)
         .then(res =>
           this.setState({
             title: res.data.title,

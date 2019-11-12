@@ -24,6 +24,13 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount() {
+    axios.defaults.baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9001"
+      : "https://nameless-cliffs-24621.herokuapp.com";
+  }
+  
   closeMenu = () => {
     const hamburgerMenu = document.querySelector("#collapsible1");
     if (hamburgerMenu && hamburgerMenu.checked) {

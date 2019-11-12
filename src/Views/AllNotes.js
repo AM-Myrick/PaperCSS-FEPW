@@ -4,7 +4,6 @@ import "./AllNotes.css";
 import { CSVLink } from "react-csv";
 import axios from "axios";
 
-const URL = "https://nameless-cliffs-24621.herokuapp.com";
 class AllNotes extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +39,7 @@ If you're interested in seeing more or contacting me, go to https://youwontregre
       this.setState({ notes });
     } else if (token) {
       axios
-        .get(`${URL}/api/notes`)
+        .get(`/api/notes`)
         .then(res => {
           this.setState({ notes: res.data });
         })

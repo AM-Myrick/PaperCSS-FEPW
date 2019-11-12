@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Modal.css";
 
-const URL = "https://nameless-cliffs-24621.herokuapp.com";
-
 const initialUser = {
   username: "",
   password: ""
@@ -30,7 +28,7 @@ export default class Modal extends Component {
     e.preventDefault();
     const notes = JSON.parse(localStorage.getItem("paper_notes")) || [];
     axios
-      .post(`${URL}/api/login`, { creds: this.state.user, notes })
+      .post(`/api/login`, { creds: this.state.user, notes })
       .then(res => {
         if (res.status === 200 && res.data) {
           localStorage.removeItem("paper_notes");
@@ -63,7 +61,7 @@ export default class Modal extends Component {
     e.preventDefault();
     const notes = JSON.parse(localStorage.getItem("paper_notes")) || [];
     axios
-      .post(`${URL}/api/register`, { creds: this.state.user, notes })
+      .post(`/api/register`, { creds: this.state.user, notes })
       .then(res => {
         if (res.data) {
           this.setState({
