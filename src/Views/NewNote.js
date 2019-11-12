@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./NewNote.css";
+axios.defaults.baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9001"
+      : "https://nameless-cliffs-24621.herokuapp.com";
 
 export default class NewNote extends Component {
   constructor(props) {

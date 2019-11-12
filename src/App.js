@@ -8,6 +8,10 @@ import SingleNoteView from "./Views/SingleNoteView";
 import UpdateNote from "./Views/UpdateNote";
 import axios from "axios";
 import Modal from "./Views/Modal";
+axios.defaults.baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9001"
+      : "https://nameless-cliffs-24621.herokuapp.com";
 
 if (localStorage.getItem("access_token")) {
   axios.defaults.headers.common["Authorization"] = localStorage.getItem(
@@ -22,13 +26,6 @@ export default class App extends Component {
       showModal: false,
       showModalVersion: ""
     };
-  }
-
-  componentDidMount() {
-    axios.defaults.baseURL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:9001"
-      : "https://nameless-cliffs-24621.herokuapp.com";
   }
   
   closeMenu = () => {

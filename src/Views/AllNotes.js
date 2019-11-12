@@ -3,6 +3,10 @@ import NoteCard from "../Components/NoteCard";
 import "./AllNotes.css";
 import { CSVLink } from "react-csv";
 import axios from "axios";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:9001"
+    : "https://nameless-cliffs-24621.herokuapp.com";
 
 class AllNotes extends Component {
   constructor(props) {

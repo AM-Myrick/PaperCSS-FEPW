@@ -2,6 +2,10 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./SingleNoteView.css";
+axios.defaults.baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9001"
+      : "https://nameless-cliffs-24621.herokuapp.com";
 
 export default class SingleNoteView extends React.Component {
   constructor(props) {

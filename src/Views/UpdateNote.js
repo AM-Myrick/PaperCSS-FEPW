@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+axios.defaults.baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:9001"
+      : "https://nameless-cliffs-24621.herokuapp.com";
 
 export default class UpdateNote extends Component {
   constructor(props) {
