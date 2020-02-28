@@ -26,15 +26,15 @@ class AllNotes extends Component {
   getNotes = (token, notes) => {
     if (token === null && notes === null) {
       const content = `
-How to use this site:
+            How to use this site:
 
-If you create notes without being logged in, they'll be saved to local storage.
+            If you create notes without being logged in, they'll be saved to local storage.
 
-If you create an account while you have notes in local storage, they'll be saved to your new account and removed from local storage.
+            If you create an account while you have notes in local storage, they'll be saved to your new account and removed from local storage.
 
-Thanks for checking out my project! 
+            Thanks for checking out my project! 
 
-If you're interested in seeing more or contacting me, go to https://youwontregrethiring.me.`.trim();
+            If you're interested in seeing more or contacting me, go to https://youwontregrethiring.me.`.trim();
       const notes = [
         { id: "note-1", title: "Welcome to Paper Notes!", content }
       ];
@@ -48,6 +48,9 @@ If you're interested in seeing more or contacting me, go to https://youwontregre
           this.setState({ notes: res.data });
         })
         .catch(error => {
+          if (error["name"] === "TokenExpiredError") {
+            // TODO: add logout logic
+          }
           console.log(error);
         });
     } else {
