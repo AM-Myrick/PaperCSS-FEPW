@@ -41,7 +41,9 @@ export default class UpdateNote extends Component {
     let notes = JSON.parse(localStorage.getItem("paper_notes"));
     if (notes !== null) {
       let note = notes.filter((note, noteIndex) => {
-        this.setState({ noteIndex });
+        if (id === note.id) {
+          this.setState({ noteIndex });
+        }
         return id === note.id;
       });
       note = note[0] === undefined ? null : note[0];
