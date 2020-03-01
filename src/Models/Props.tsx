@@ -1,7 +1,10 @@
 import { RouteComponentProps } from "react-router";
 import Note from "./Note";
 
-export interface AppProps extends RouteComponentProps {
+interface RouteParams {
+    id?: string;
+}
+export interface AppProps extends RouteComponentProps<RouteParams> {
     closeMenu: () => void;
 }
 
