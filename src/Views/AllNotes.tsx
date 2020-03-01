@@ -14,7 +14,6 @@ const AllNotes: React.FC<AppProps> = ({ closeMenu }) => {
   const [notes, setNotes] = useState<Note[]>([]);
 
   useEffect(() => {
-    console.log(false)
     const token = localStorage.getItem("access_token");
     const notes = localStorage.getItem("paper_notes");
     if (token === null && notes === null) {
@@ -67,18 +66,18 @@ const AllNotes: React.FC<AppProps> = ({ closeMenu }) => {
     const counter: Counter = {};
 
     for (const note of notes) {
-      if (counter[note.id]) {
-        counter[note.id]++;
+      if (counter[note.id!]) {
+        counter[note.id!]++;
         continue;
       }
-      counter[note.id] = 1;
+      counter[note.id!] = 1;
     }
 
     notes = notes.map(note => {
-      while (counter[note.id] > 1) {
+      while (counter[note.id!] > 1) {
         const noteId = note.id as string;
         const newNoteId = parseInt(noteId[noteId.length - 1]);
-        counter[note.id]--;
+        counter[note.id!]--;
         note.id = `note-${newNoteId + 1}`;
         if (counter[note.id]) {
           counter[note.id]++;
