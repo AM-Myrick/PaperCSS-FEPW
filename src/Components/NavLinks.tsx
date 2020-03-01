@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { NavLinksProps } from "../Models/Props"
+import { NavLinksProps } from "../Models/Props";
 
 const NavLinks: React.FC<NavLinksProps> = ({
   width,
@@ -9,6 +9,10 @@ const NavLinks: React.FC<NavLinksProps> = ({
   showLoginModal
 }) => {
   const token = localStorage.getItem("access_token");
+
+  const classNames =
+    width <= 768 ? "collapsible-body btn-container" : "btn-container";
+    
   const logout = () => {
     const notes = [
       {
@@ -22,26 +26,20 @@ const NavLinks: React.FC<NavLinksProps> = ({
     window.location.replace(window.location.origin);
   };
 
-  return token ? (
-    <div
-      className={
-        width <= 768 ? "collapsible-body btn-container" : "btn-container"
-      }
-      onClick={() => closeMenu()}
-    >
-      <NavLink to="/">View Notes</NavLink>
-      <NavLink to="/add-note">Add Note</NavLink>
-      <NavLink to="/" onClick={() => logout()}>
-        Logout
-      </NavLink>
-    </div>
-  ) : (
-    <div
-      className={
-        width <= 768 ? "collapsible-body btn-container" : "btn-container"
-      }
-      onClick={() => closeMenu()}
-    >
+  if (token) {
+    return (
+      <div className={classNames} onClick={() => closeMenu()}>
+        <NavLink to="/">View Notes</NavLink>
+        <NavLink to="/add-note">Add Note</NavLink>
+        <NavLink to="/" onClick={() => logout()}>
+          Logout
+        </NavLink>
+      </div>
+    );
+  }
+
+  return (
+    <div className={classNames} onClick={() => closeMenu()}>
       <NavLink to="/">View Notes</NavLink>
       <NavLink to="/add-note">Add Note</NavLink>
       <div className="nav-button" onClick={() => showRegisterModal()}>
