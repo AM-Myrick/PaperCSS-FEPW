@@ -10,3 +10,10 @@ export interface NavProps extends AppProps {
 export interface NavLinksProps extends NavProps {
     width: number;
 }
+
+export type ModalType = "login" | "register" | "";
+
+export interface ModalProps extends AppProps {
+    showModal: boolean;
+    modalVersion: ModalType;
+}

@@ -9,6 +9,7 @@ import UpdateNote from "./Views/UpdateNote";
 import axios from "axios";
 import Modal from "./Components/Navigation/Modal";
 import { RouteComponentProps } from "react-router";
+import { ModalType } from "./Models/Props";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"
@@ -22,7 +23,7 @@ if (localStorage.getItem("access_token")) {
 
 const App: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [modalVersion, setModalVersion] = useState<string>("");
+  const [modalVersion, setModalVersion] = useState<ModalType>("");
 
   const closeMenu = () => {
     const hamburgerMenu: HTMLInputElement | null = document.querySelector(
@@ -80,10 +81,9 @@ const App: React.FC = () => {
         render={(props: RouteComponentProps) => <UpdateNote {...props} closeMenu={closeMenu} />}
       />
       <Modal
-        show={showModal}
-        view={modalVersion}
+        showModal={showModal}
+        modalVersion={modalVersion}
         closeMenu={closeMenu}
-        showLoginModal={showLoginModal}
       />
     </div>
   );
