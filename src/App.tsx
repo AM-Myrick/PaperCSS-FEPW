@@ -8,6 +8,7 @@ import SingleNoteView from "./Views/SingleNoteView";
 import UpdateNote from "./Views/UpdateNote";
 import axios from "axios";
 import Modal from "./Views/Modal";
+import { RouteComponentProps } from "react-router";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"
@@ -19,7 +20,7 @@ if (localStorage.getItem("access_token")) {
   );
 }
 
-const App: React.FC<any> = props => {
+const App: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [modalVersion, setModalVersion] = useState<string>("");
 
@@ -49,7 +50,7 @@ const App: React.FC<any> = props => {
     <div className="App">
       <Route
         path="/"
-        render={(props: any) => (
+        render={(props: RouteComponentProps) => (
           <Navigation
             {...props}
             closeMenu={closeMenu}
@@ -61,22 +62,22 @@ const App: React.FC<any> = props => {
       <Route
         exact
         path="/"
-        render={(props: any) => <AllNotes {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => <AllNotes {...props} closeMenu={closeMenu} />}
       />
       <Route
         exact
         path="/add-note"
-        render={(props: any) => <NewNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => <NewNote {...props} closeMenu={closeMenu} />}
       />
       <Route
         path={`/note/:id`}
-        render={(props: any) => (
+        render={(props: RouteComponentProps) => (
           <SingleNoteView {...props} closeMenu={closeMenu} />
         )}
       />
       <Route
         path={`/edit/:id`}
-        render={(props: any) => <UpdateNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => <UpdateNote {...props} closeMenu={closeMenu} />}
       />
       <Modal
         show={showModal}
