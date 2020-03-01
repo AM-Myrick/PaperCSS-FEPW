@@ -13,6 +13,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-flowtype": "^3.13.0",
     "fibers": "^3.1.1",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "react": "^16.8.0",
     "react-csv": "^1.0.18",
