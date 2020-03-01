@@ -3,15 +3,21 @@ import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import debounce from "lodash/debounce";
 import "./Navigation.css";
+import { NavProps } from "../../Models/Props";
 
-const Navigation: React.FC<any> = props => {
-  const [width, setWidth] = useState<number>(window.innerWidth)
-  const { closeMenu, showLoginModal, showRegisterModal } = props;
+const Navigation: React.FC<NavProps> = ({
+  closeMenu,
+  showLoginModal,
+  showRegisterModal
+}) => {
+  const [width, setWidth] = useState<number>(window.innerWidth);
 
-  useEffect(() => window.addEventListener("resize", debounce(updateWidth, 100)));
+  useEffect(() =>
+    window.addEventListener("resize", debounce(updateWidth, 100))
+  );
 
   const updateWidth = () => setWidth(window.innerWidth);
-  
+
   return width >= 1000 ? (
     <nav>
       <h1>
@@ -47,6 +53,6 @@ const Navigation: React.FC<any> = props => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navigation;

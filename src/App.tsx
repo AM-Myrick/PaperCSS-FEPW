@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
-import Navigation from "./Components/Navigation";
+import Navigation from "./Components/Navigation/Navigation";
 import AllNotes from "./Views/AllNotes";
 import NewNote from "./Views/NewNote";
 import "./App.css";
 import SingleNoteView from "./Views/SingleNoteView";
 import UpdateNote from "./Views/UpdateNote";
 import axios from "axios";
-import Modal from "./Views/Modal";
+import Modal from "./Components/Navigation/Modal";
 import { RouteComponentProps } from "react-router";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
