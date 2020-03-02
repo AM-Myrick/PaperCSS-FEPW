@@ -35,6 +35,7 @@ const SingleNoteView: React.FC<AppProps> = ({ match, history, closeMenu }) => {
 
   const fetchNote = (id: string, token: string | null, note: Note | null) => {
     if (token) {
+      // should be altered with app state
       axios
         .get(`/api/notes/${id}`)
         .then(res => {
