@@ -2,8 +2,8 @@ import React, { useState, useEffect, MouseEvent } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./SingleNoteView.css";
-import { AppProps } from "../Models/Props";
-import Note from "../Models/Note";
+import { AppProps } from "../../Models/Props";
+import Note from "../../Models/Note";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"

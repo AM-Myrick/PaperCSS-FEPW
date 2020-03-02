@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import Navigation from "./Components/Navigation/Navigation";
-import AllNotes from "./Views/AllNotes";
-import NewNote from "./Views/NewNote";
+import AllNotes from "./Components/Notes/AllNotes";
+import NewNote from "./Components/Notes/NewNote";
 import "./App.css";
-import SingleNoteView from "./Views/SingleNoteView";
-import UpdateNote from "./Views/UpdateNote";
+import SingleNoteView from "./Components/Notes/SingleNoteView";
+import UpdateNote from "./Components/Notes/UpdateNote";
 import axios from "axios";
 import Modal from "./Components/Navigation/Modal";
 import { RouteComponentProps } from "react-router";

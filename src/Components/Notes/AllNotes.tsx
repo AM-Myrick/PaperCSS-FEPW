@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import NoteCard from "../Components/NoteCard";
+import NoteCard from "./NoteCard";
 import "./AllNotes.css";
 import { CSVLink } from "react-csv";
 import axios from "axios";
-import Note from "../Models/Note";
-import { AppProps } from "../Models/Props";
+import Note from "../../Models/Note";
+import { AppProps } from "../../Models/Props";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"
