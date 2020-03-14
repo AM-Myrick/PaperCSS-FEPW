@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.15",
+    "papercss": "^1.6.1",
     "react": "^16.8.0",
     "react-csv": "^2.0.1",
     "react-dom": "^16.8.0",
