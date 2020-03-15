@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+import { History } from "history";
 import { RouteComponentProps } from "react-router";
 import Note from "./Note";
 
@@ -31,4 +33,11 @@ export interface ModalProps {
 export interface NoteCardProps {
     key?: number | string;
     note: Note;
+}
+
+export interface DeleteModalProps {
+    history: History;
+    note: Note;
+    deleteToggle: (e: MouseEvent<HTMLDivElement>) => void;
+    noteIndex: number | undefined;
 }
