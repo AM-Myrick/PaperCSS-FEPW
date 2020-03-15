@@ -1,3 +1,5 @@
+@import "../../Styles/mixins.scss";
+
 // fixed and sidebar nav styles
 nav .btn-container {
   display: flex;
@@ -6,32 +8,8 @@ nav .btn-container {
   margin: 0 auto;
   width: 150px;
 
-  a,
   .nav-button {
-    text-decoration: none;
-    background-color: #24b8bd;
-    color: #ffffff;
-    width: 150px;
-    padding: 5%;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    text-align: center;
-    height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: none;
-    border-bottom: 5px solid #41403e;
-    border-bottom-left-radius: 15px 3px;
-    border-bottom-right-radius: 15px 5px;
-    cursor: pointer;
-    margin-left: 0;
-    margin-right: 0;
-
-    &:hover {
-      background-color: #14696c;
-      border-bottom: 5px solid #c1c0bd;
-    }
+    @include button-styles;
   }
 }
 
@@ -41,7 +19,7 @@ nav.fixed .btn-container {
   align-items: center;
   flex-wrap: nowrap;
   margin-bottom: 0;
-  a,
+
   .nav-button {
     height: 75px;
     margin: 1%;

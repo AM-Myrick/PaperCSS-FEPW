@@ -30,9 +30,9 @@ const NavLinks: React.FC<NavLinksProps> = ({
   if (token) {
     return (
       <div className={classNames} onClick={() => closeMenu()}>
-        <NavLink to="/">View Notes</NavLink>
-        <NavLink to="/add-note">Add Note</NavLink>
-        <NavLink to="/" onClick={() => logout()}>
+        <NavLink className="nav-button" to="/">View Notes</NavLink>
+        <NavLink className="nav-button" to="/add-note">Add Note</NavLink>
+        <NavLink className="nav-button" to="/" onClick={() => logout()}>
           Logout
         </NavLink>
       </div>
@@ -41,8 +41,8 @@ const NavLinks: React.FC<NavLinksProps> = ({
 
   return (
     <div className={classNames} onClick={() => closeMenu()}>
-      <NavLink to="/">View Notes</NavLink>
-      <NavLink to="/add-note">Add Note</NavLink>
+      <NavLink className="nav-button" to="/">View Notes</NavLink>
+      <NavLink className="nav-button" to="/add-note">Add Note</NavLink>
       <div className="nav-button" onClick={() => showRegisterModal()}>
         Register
       </div>
