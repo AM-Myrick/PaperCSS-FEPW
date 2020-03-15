@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NoteCard from "./NoteCard";
-import "./AllNotes.css";
+import "./AllNotes.scss";
 import { CSVLink } from "react-csv";
 import axios from "axios";
 import Note from "../../Models/Note";
@@ -136,7 +136,7 @@ const AllNotes: React.FC<AppProps> = ({ closeMenu }) => {
             Download your notes!
           </CSVLink>
           <div className="dropdown">
-            <button className="dropbtn">Sort Options</button>
+            <div className="dropbtn">Sort Options</div>
             <div className="dropdown-content">
               <div onClick={e => sortNotes(e, true)}>A-Z</div>
               <div onClick={e => sortNotes(e, false)}>Z-A</div>
