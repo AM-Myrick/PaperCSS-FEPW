@@ -36,22 +36,14 @@
     }
 
     div {
-      color: #ffffff;
-      background-color: black;
-      border: 1px solid #eaeaea;
-      width: 10%;
-      height: 25%;
-      padding: 1% 8%;
-      font-size: 0.8rem;
+      @include button-styles;
+      height: 50px;
+      margin-top: 1rem;
       margin-right: 1.5%;
       margin-left: 1.5%;
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
-      border-bottom: 5px solid #41403e;
-      border-bottom-left-radius: 15px 3px;
-      border-bottom-right-radius: 15px 5px;
     }
 
     .cancel {
