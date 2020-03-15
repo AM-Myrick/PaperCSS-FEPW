@@ -1,0 +1,63 @@
+@import "./mixins.scss";
+
+.single-note .delete-modal {
+  z-index: 2;
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.95;
+  background-color: #99a4af;
+  display: flex;
+  justify-content: center;
+
+  .delete-menu {
+    background-color: #ffffff;
+    border: 2px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 150px;
+    margin-top: 50vh;
+    z-index: 3;
+    position: absolute;
+    padding-top: 1rem;
+
+    p {
+      width: 100%;
+      text-align: center;
+      height: 1.6rem;
+      margin-left: 0;
+      margin-right: 0;
+      margin-block-end: 0;
+    }
+
+    div {
+      @include button-styles;
+      height: 50px;
+      margin-top: 1rem;
+      margin-right: 1.5%;
+      margin-left: 1.5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cancel {
+      background-color: $theme-button-color;
+    }
+
+    .delete {
+      background-color: #ca001a;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .single-note .delete-modal .delete-menu {
+    width: 500px;
+  }
+}

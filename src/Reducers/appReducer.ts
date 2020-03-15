@@ -1,3 +1,4 @@
+// not currently in use
 import Note from "../Models/Note";
 
 export interface AppState {

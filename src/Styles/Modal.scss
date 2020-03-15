@@ -1,0 +1,39 @@
+@import "./mixins.scss";
+
+.card-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $theme-button-color;
+
+  &:hover {
+    transform: translate(-50%, -50%);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .card-title {
+      color: #fff;
+    }
+
+    form {
+      color: #fff;
+
+      input {
+        border: 2px solid #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      button {
+        width: 100%;
+        color: #fff;
+        border: 2px solid #fff;
+      }
+    }
+  }
+}

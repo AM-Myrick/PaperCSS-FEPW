@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NoteCard.css";
+import "../../Styles/NoteCard.scss";
 import { NoteCardProps } from "../../Models/Props";
 
 const NoteCard: React.FC<NoteCardProps> = ({
@@ -12,7 +12,7 @@ const NoteCard: React.FC<NoteCardProps> = ({
     content.length > cardTextSlice
       ? content.substring(0, cardTextSlice) + "..."
       : content;
-      
+
   return (
     <Link className="card" to={`/note/${id}`}>
       <div className="card-body">

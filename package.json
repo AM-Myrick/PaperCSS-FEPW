@@ -30,6 +30,7 @@
     "source-map-explorer": "^2.3.1"
   },
   "scripts": {
+    "prettier": "prettier --write **/**/**/**.{tsx,scss} && prettier --write **/**/**.{tsx,scss} && prettier --write **/**.{tsx,scss}",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",

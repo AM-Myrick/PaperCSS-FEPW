@@ -1,0 +1,55 @@
+@import "./mixins.scss";
+
+.new-note form {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+
+  input,
+  textarea {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1%;
+
+    &:focus {
+      border: 2px solid $theme-button-color;
+    }
+  }
+
+  textarea {
+    height: 250px;
+  }
+
+  .save {
+    @include button-styles;
+    width: 185px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 575px) {
+  .new-note form {
+    max-width: 75%;
+    margin-left: 2.5%;
+    margin-right: auto;
+
+    input,
+    textarea {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .new-note form {
+    max-width: 1000px;
+    margin-left: 5%;
+
+    input,
+    textarea {
+      width: 75%;
+    }
+  }
+}

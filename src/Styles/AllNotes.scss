@@ -1,0 +1,103 @@
+@import "./mixins.scss";
+
+section {
+  background-color: #f2f1f2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  margin-top: 75px;
+
+  .dropdown {
+    border-bottom-left-radius: 15px 3px;
+    border-bottom-right-radius: 15px 5px;
+
+    .dropbtn {
+      @include button-styles;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: $theme-button-color;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      div {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $theme-button-hover-color;
+        }
+      }
+    }
+    &:hover .dropdown-content {
+      display: block;
+    }
+
+    &:hover .dropbtn {
+      background-color: $theme-button-hover-color;
+    }
+  }
+
+  h2 {
+    margin-left: 2.5%;
+    font-size: 1.6rem;
+    color: #474747;
+  }
+
+  .notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+
+    a {
+      @include button-styles;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  section {
+    margin-top: 125px;
+  }
+}
+
+@media (min-width: 1000px) {
+  h3.loading-message {
+    margin-left: 20%;
+  }
+
+  section {
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 0;
+
+    .btn-container,
+    h2,
+    .notes {
+      max-width: 1000px;
+      margin-left: 5%;
+      margin-right: auto;
+    }
+
+    .notes {
+      justify-content: flex-start;
+      margin-left: calc(5% - 16px);
+    }
+  }
+}

@@ -8,6 +8,8 @@ import React, {
 import axios from "axios";
 import { AppProps } from "../../Models/Props";
 import Note from "../../Models/Note";
+import "../../Styles/NewNote.scss";
+
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"

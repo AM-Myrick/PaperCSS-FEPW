@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Navigation from "./Components/Navigation/Navigation";
 import AllNotes from "./Components/Notes/AllNotes";
 import NewNote from "./Components/Notes/NewNote";
-import "./App.css";
 import SingleNoteView from "./Components/Notes/SingleNoteView";
 import UpdateNote from "./Components/Notes/UpdateNote";
 import axios from "axios";
@@ -63,12 +62,16 @@ const App: React.FC = () => {
       <Route
         exact
         path="/"
-        render={(props: RouteComponentProps) => <AllNotes {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <AllNotes {...props} closeMenu={closeMenu} />
+        )}
       />
       <Route
         exact
         path="/add-note"
-        render={(props: RouteComponentProps) => <NewNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <NewNote {...props} closeMenu={closeMenu} />
+        )}
       />
       <Route
         path={`/note/:id`}
@@ -78,7 +81,9 @@ const App: React.FC = () => {
       />
       <Route
         path={`/edit/:id`}
-        render={(props: RouteComponentProps) => <UpdateNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <UpdateNote {...props} closeMenu={closeMenu} />
+        )}
       />
       <Modal
         showModal={showModal}

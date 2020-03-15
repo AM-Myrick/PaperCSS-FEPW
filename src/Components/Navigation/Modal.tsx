@@ -1,13 +1,12 @@
 import React, { useState, FormEvent, MouseEvent } from "react";
 import axios from "axios";
-import "./Modal.css";
+import "../../Styles/Modal.scss";
 import { ModalProps } from "../../Models/Props";
 import Note from "../../Models/Note";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"
     : "https://nameless-cliffs-24621.herokuapp.com";
-
 
 interface User {
   username: string;
