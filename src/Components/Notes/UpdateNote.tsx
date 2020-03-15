@@ -8,6 +8,7 @@ import React, {
 import axios from "axios";
 import { AppProps } from "../../Models/Props";
 import Note from "../../Models/Note";
+import NotePreview from "./NotePreview";
 import "../../Styles/NewNote.scss";
 
 axios.defaults.baseURL =
@@ -17,6 +18,7 @@ axios.defaults.baseURL =
 
 const UpdateNote: React.FC<AppProps> = ({ match, history, closeMenu }) => {
   const [noteIndex, setNoteIndex] = useState<number>();
+  const [showPreview, setShowPreview] = useState<boolean>(false);
   // TODO should be deprecated with app state
   const [note, setNote] = useState<Note>({ title: "", content: "" });
 
@@ -78,12 +80,26 @@ const UpdateNote: React.FC<AppProps> = ({ match, history, closeMenu }) => {
     }
   };
 
+  const previewHandler = () => {
+    setShowPreview(!showPreview);
+  }
+
   const changeHandler = (
     e: FormEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = e.currentTarget;
     setNote({ ...note, [name]: value });
   };
+
+  if (showPreview) {
+    return ( <NotePreview
+      note={note}
+      closeMenu={closeMenu}
+      updateNote={updateNote}
+      previewHandler={previewHandler}
+    />
+    )
+  }
 
   return (
     <section className="new-note" onClick={closeMenu}>
@@ -106,6 +122,9 @@ const UpdateNote: React.FC<AppProps> = ({ match, history, closeMenu }) => {
         ></textarea>
         <button className="default save" type="submit">
           Save Edits
+        </button>
+        <button className="default save" type="button" onClick={previewHandler}>
+          Show Preview
         </button>
       </form>
     </section>
