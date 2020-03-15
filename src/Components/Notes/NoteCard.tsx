@@ -12,7 +12,7 @@ const NoteCard: React.FC<NoteCardProps> = ({
     content.length > cardTextSlice
       ? content.substring(0, cardTextSlice) + "..."
       : content;
-      
+
   return (
     <Link className="card" to={`/note/${id}`}>
       <div className="card-body">

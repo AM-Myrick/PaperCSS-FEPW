@@ -8,7 +8,6 @@ axios.defaults.baseURL =
     ? "http://localhost:9001"
     : "https://nameless-cliffs-24621.herokuapp.com";
 
-
 interface User {
   username: string;
   password: string;

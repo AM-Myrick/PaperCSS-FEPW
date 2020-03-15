@@ -62,12 +62,16 @@ const App: React.FC = () => {
       <Route
         exact
         path="/"
-        render={(props: RouteComponentProps) => <AllNotes {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <AllNotes {...props} closeMenu={closeMenu} />
+        )}
       />
       <Route
         exact
         path="/add-note"
-        render={(props: RouteComponentProps) => <NewNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <NewNote {...props} closeMenu={closeMenu} />
+        )}
       />
       <Route
         path={`/note/:id`}
@@ -77,7 +81,9 @@ const App: React.FC = () => {
       />
       <Route
         path={`/edit/:id`}
-        render={(props: RouteComponentProps) => <UpdateNote {...props} closeMenu={closeMenu} />}
+        render={(props: RouteComponentProps) => (
+          <UpdateNote {...props} closeMenu={closeMenu} />
+        )}
       />
       <Modal
         showModal={showModal}

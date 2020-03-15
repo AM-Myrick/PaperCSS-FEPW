@@ -13,7 +13,7 @@ const NavLinks: React.FC<NavLinksProps> = ({
 
   const classNames =
     width <= 768 ? "collapsible-body btn-container" : "btn-container";
-    
+
   const logout = () => {
     const notes = [
       {
@@ -30,8 +30,12 @@ const NavLinks: React.FC<NavLinksProps> = ({
   if (token) {
     return (
       <div className={classNames} onClick={() => closeMenu()}>
-        <NavLink className="nav-button" to="/">View Notes</NavLink>
-        <NavLink className="nav-button" to="/add-note">Add Note</NavLink>
+        <NavLink className="nav-button" to="/">
+          View Notes
+        </NavLink>
+        <NavLink className="nav-button" to="/add-note">
+          Add Note
+        </NavLink>
         <NavLink className="nav-button" to="/" onClick={() => logout()}>
           Logout
         </NavLink>
@@ -41,8 +45,12 @@ const NavLinks: React.FC<NavLinksProps> = ({
 
   return (
     <div className={classNames} onClick={() => closeMenu()}>
-      <NavLink className="nav-button" to="/">View Notes</NavLink>
-      <NavLink className="nav-button" to="/add-note">Add Note</NavLink>
+      <NavLink className="nav-button" to="/">
+        View Notes
+      </NavLink>
+      <NavLink className="nav-button" to="/add-note">
+        Add Note
+      </NavLink>
       <div className="nav-button" onClick={() => showRegisterModal()}>
         Register
       </div>

@@ -107,7 +107,7 @@ const AllNotes: React.FC<AppProps> = ({ closeMenu }) => {
             }
             return 0;
           })
-      ])
+        ])
       : setNotes([
           ...notes.sort(function(b, a) {
             let titleA = a.title.toLowerCase();
@@ -120,7 +120,7 @@ const AllNotes: React.FC<AppProps> = ({ closeMenu }) => {
             }
             return 0;
           })
-      ]);
+        ]);
   };
 
   const headers = [
