@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Navigation from "./Components/Navigation/Navigation";
 import AllNotes from "./Components/Notes/AllNotes";
 import NewNote from "./Components/Notes/NewNote";
-import "./App.css";
 import SingleNoteView from "./Components/Notes/SingleNoteView";
 import UpdateNote from "./Components/Notes/UpdateNote";
 import axios from "axios";
