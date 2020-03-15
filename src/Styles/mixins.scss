@@ -1,23 +1,17 @@
 @mixin button-styles {
   text-decoration: none;
-  background-color: #24b8bd;
-  color: #ffffff;
-  width: 150px;
-  padding: 5%;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  text-align: center;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: none;
-  border-bottom: 5px solid #41403e;
+  border-bottom: 5px solid #41403e !important;
   border-bottom-left-radius: 15px 3px;
   border-bottom-right-radius: 15px 5px;
-  cursor: pointer;
   margin-left: 0;
-  margin-right: 0;
+  margin-right: 0;box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #24b8bd;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0;
 
   &:hover {
     background-color: #14696c;
