@@ -115,11 +115,14 @@ section h2 {
     margin-top: 0;
   }
 
-  section h2 {
+  section .btn-container, section h2, section .notes {
+    max-width: 1000px;
     margin-left: 5%;
+    margin-right: auto;
   }
 
   section .notes {
     justify-content: flex-start;
+    margin-left: calc(5% - 16px);
   }
 }
