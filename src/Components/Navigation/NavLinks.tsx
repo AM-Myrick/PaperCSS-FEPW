@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { NavLinksProps } from "../../Models/Props";
+import "./NavLinks.scss";
 
 const NavLinks: React.FC<NavLinksProps> = ({
   width,
