@@ -5,6 +5,7 @@ import DeleteModal from "./DeleteModal";
 import "../../Styles/SingleNoteView.scss";
 import { AppProps } from "../../Models/Props";
 import Note from "../../Models/Note";
+import ReactMarkdown from "react-markdown";
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9001"
@@ -76,7 +77,7 @@ const SingleNoteView: React.FC<AppProps> = ({ match, history, closeMenu }) => {
           <p onClick={deleteToggle}>delete</p>
         </div>
         <h3>{note.title}</h3>
-        <p>{note.content}</p>
+        <ReactMarkdown source={note.content} />
       </section>
     );
   }
