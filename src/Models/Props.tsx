@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { MouseEvent, FormEvent, RefObject } from "react";
 import { History } from "history";
 import { RouteComponentProps } from "react-router";
 import Note from "./Note";
@@ -40,4 +40,17 @@ export interface DeleteModalProps {
   note: Note;
   deleteToggle: (e: MouseEvent<HTMLDivElement>) => void;
   noteIndex: number | undefined;
+}
+
+export interface NotePreviewProps {
+  note: Note;
+  closeMenu: () => void;
+  updateNote: (e: MouseEvent<HTMLButtonElement, MouseEvent> | FormEvent<HTMLFormElement>) => void;
+  previewHandler: () => void;
+}
+
+export interface ShowMoreButtonProps {
+  clickHandler: () => void;
+  value: string;
+  classes: string;
 }
