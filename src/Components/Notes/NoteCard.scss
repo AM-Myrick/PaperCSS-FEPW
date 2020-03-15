@@ -1,4 +1,4 @@
-.notes a {
+a.card {
   min-width: 284px;
   max-width: 284px;
   border: 2px solid #eaeaea;
@@ -11,37 +11,37 @@
   color: black;
   height: auto;
   overflow: hidden;
-}
 
-.notes h4 {
-  border-bottom: 2px solid #eaeaea;
-  padding-bottom: 5px;
-  margin-block-end: 0.5em;
-}
+  h4 {
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 5px;
+    margin-block-end: 0.5em;
+  }
 
-.notes p {
-  margin-block-start: 0.5em;
+  p {
+    margin-block-start: 0.5em;
+  }
 }
 
 @media (min-width: 575px) {
-  .notes a {
+  a.card {
     margin-right: 8px;
   }
 }
 
 @media (min-width: 900px) {
-  .notes a {
+  a.card {
     margin-right: 1%;
     margin-bottom: 8px;
-  }
 
-  .notes a:nth-child(3n + 1) {
-    margin-left: 1%;
+    &:nth-child(3n + 1) {
+      margin-left: 1%;
+    }
   }
 }
 
 @media (min-width: 1000px) {
-  .notes a {
+  a.card {
     min-width: 240px;
     max-width: 240px;
     height: auto;
@@ -49,7 +49,7 @@
 }
 
 @media (min-width: 1100px) {
-  .notes a {
+  a.card {
     min-width: 30%;
     max-width: 30%;
     height: auto;
