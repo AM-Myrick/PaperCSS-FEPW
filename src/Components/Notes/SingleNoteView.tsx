@@ -1,7 +1,8 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./SingleNoteView.css";
+import DeleteModal from "./DeleteModal";
+import "./SingleNoteView.scss";
 import { AppProps } from "../../Models/Props";
 import Note from "../../Models/Note";
 axios.defaults.baseURL =
@@ -56,65 +57,34 @@ const SingleNoteView: React.FC<AppProps> = ({ match, history, closeMenu }) => {
     setShowDeleteModal(!showDeleteModal);
   };
 
-  const deleteNote = (e: MouseEvent<HTMLDivElement>, token: string | null) => {
-    e.preventDefault();
-    if (token) {
-      axios
-        .delete(`/api/notes/${note.id}`)
-        .then(() => history.push("/"))
-        .catch(err => console.log(err));
-    } else {
-      let notes = JSON.parse(localStorage.getItem("paper_notes")!);
-      notes = notes.filter((_: Note, index: number) => index !== noteIndex);
-      localStorage.setItem("paper_notes", JSON.stringify(notes));
-      history.push("/");
-    }
-  };
-
   if (showDeleteModal) {
     return (
-      <div className="single-note" onClick={deleteToggle}>
-        <div className="link-wrapper">
-          <Link to={`/edit/${note.id}`}>edit</Link>
-          <p onClick={deleteToggle}>delete</p>
-        </div>
-        <h3>{note.title}</h3>
-        <p>{note.content}</p>
-        <div className="delete-modal">
-          <div className="delete-menu">
-            <p>Are you sure you want to delete this note?</p>
-            <div className="cancel" onClick={deleteToggle}>
-              Cancel
-            </div>
-            <div
-              className="delete"
-              onClick={e => deleteNote(e, localStorage.getItem("access_token"))}
-            >
-              Delete
-            </div>
-          </div>
-        </div>
-      </div>
+      <DeleteModal
+        history={history}
+        note={note}
+        deleteToggle={deleteToggle}
+        noteIndex={noteIndex}
+      />
     );
   }
 
   if (note.title || note.content) {
     return (
-      <div className="single-note" onClick={() => closeMenu()}>
+      <section className="single-note" onClick={() => closeMenu()}>
         <div className="link-wrapper">
           <Link to={`/edit/${note.id}`}>edit</Link>
           <p onClick={deleteToggle}>delete</p>
         </div>
         <h3>{note.title}</h3>
         <p>{note.content}</p>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div className="single-note">
+    <section className="single-note">
       <p>Loading...</p>
-    </div>
+    </section>
   );
 };
 
