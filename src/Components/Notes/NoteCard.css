@@ -45,10 +45,6 @@
 }
 
 @media (min-width: 1000px) {
-  .notes a:nth-child(3n + 1) {
-    margin-left: calc(5% - 8px);
-  }
-
   .notes a {
     min-width: 240px;
     max-width: 240px;
