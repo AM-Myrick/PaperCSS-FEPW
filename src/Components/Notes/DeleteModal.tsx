@@ -1,7 +1,7 @@
 import React, { MouseEvent } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./DeleteModal.scss";
+import "../../Styles/DeleteModal.scss";
 import { DeleteModalProps } from "../../Models/Props";
 import Note from "../../Models/Note";
 axios.defaults.baseURL =

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import debounce from "lodash/debounce";
-import "./Navigation.scss";
+import "../../Styles/Navigation.scss";
 import { NavProps } from "../../Models/Props";
 
 const Navigation: React.FC<NavProps> = ({

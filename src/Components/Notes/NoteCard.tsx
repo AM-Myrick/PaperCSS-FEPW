@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NoteCard.scss";
+import "../../Styles/NoteCard.scss";
 import { NoteCardProps } from "../../Models/Props";
 
 const NoteCard: React.FC<NoteCardProps> = ({

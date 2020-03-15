@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NoteCard from "./NoteCard";
-import "./AllNotes.scss";
+import "../../Styles/AllNotes.scss";
 import { CSVLink } from "react-csv";
 import axios from "axios";
 import Note from "../../Models/Note";

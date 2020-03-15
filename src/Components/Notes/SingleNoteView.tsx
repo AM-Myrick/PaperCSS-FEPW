@@ -2,7 +2,7 @@ import React, { useState, useEffect, MouseEvent } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
-import "./SingleNoteView.scss";
+import "../../Styles/SingleNoteView.scss";
 import { AppProps } from "../../Models/Props";
 import Note from "../../Models/Note";
 axios.defaults.baseURL =
