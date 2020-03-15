@@ -10,6 +10,12 @@ nav .btn-container {
 
   .nav-button {
     @include button-styles;
+    width: 100%;
+    font-size: 1.2rem;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -25,6 +31,7 @@ nav.fixed .btn-container {
     margin: 1%;
     margin-bottom: 0;
     width: 33%;
+    text-align: center;
   }
 }
 
@@ -35,19 +42,6 @@ nav.fixed .btn-container {
 
     a:first-of-type {
       margin-top: 25px;
-    }
-
-    .sign-in {
-      width: 100px;
-      height: 75px;
-      margin: 0;
-      margin-bottom: 0.5rem;
-      background-color: #d3d2d3;
-      color: #414141;
-    }
-
-    .sign-in:hover {
-      background-color: darkgray;
     }
   }
 }
