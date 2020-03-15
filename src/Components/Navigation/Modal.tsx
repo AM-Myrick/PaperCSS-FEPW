@@ -1,6 +1,6 @@
 import React, { useState, FormEvent, MouseEvent } from "react";
 import axios from "axios";
-import "./Modal.css";
+import "./Modal.scss";
 import { ModalProps } from "../../Models/Props";
 import Note from "../../Models/Note";
 axios.defaults.baseURL =
