@@ -1,9 +1,11 @@
+@import "./mixins.scss";
+
 .card-modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #24b8bd;
+  background-color: $theme-button-color;
 
   &:hover {
     transform: translate(-50%, -50%);

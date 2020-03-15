@@ -1,3 +1,5 @@
+@import "./mixins.scss";
+
 .single-note .delete-modal {
   z-index: 2;
   position: fixed;
@@ -53,7 +55,7 @@
     }
 
     .cancel {
-      background-color: #24b8bd;
+      background-color: $theme-button-color;
     }
 
     .delete {

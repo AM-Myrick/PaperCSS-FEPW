@@ -5,7 +5,7 @@
   border-bottom-right-radius: 15px 5px;
   margin-left: 0;
   margin-right: 0;box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  background-color: #24b8bd;
+  background-color: $theme-button-color;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -14,7 +14,10 @@
   margin-bottom: 0;
 
   &:hover {
-    background-color: #14696c;
+    background-color: $theme-button-hover-color;
     border-bottom: 5px solid #c1c0bd;
   }
 }
+
+$theme-button-color: #24b8bd;
+$theme-button-hover-color: #14696c;
