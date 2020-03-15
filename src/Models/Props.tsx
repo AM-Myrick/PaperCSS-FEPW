@@ -4,40 +4,40 @@ import { RouteComponentProps } from "react-router";
 import Note from "./Note";
 
 interface RouteParams {
-    id?: string;
+  id?: string;
 }
 export interface AppProps extends RouteComponentProps<RouteParams> {
-    closeMenu: () => void;
+  closeMenu: () => void;
 }
 
 export interface NavProps extends AppProps {
-    showRegisterModal: () => void;
-    showLoginModal: () => void;
+  showRegisterModal: () => void;
+  showLoginModal: () => void;
 }
 
 export interface NavLinksProps {
-    width: number;
-    closeMenu: () => void;
-    showRegisterModal: () => void;
-    showLoginModal: () => void;
+  width: number;
+  closeMenu: () => void;
+  showRegisterModal: () => void;
+  showLoginModal: () => void;
 }
 
 export type ModalType = "login" | "register" | "";
 
 export interface ModalProps {
-    showModal: boolean;
-    modalVersion: ModalType;
-    closeMenu: () => void;
+  showModal: boolean;
+  modalVersion: ModalType;
+  closeMenu: () => void;
 }
 
 export interface NoteCardProps {
-    key?: number | string;
-    note: Note;
+  key?: number | string;
+  note: Note;
 }
 
 export interface DeleteModalProps {
-    history: History;
-    note: Note;
-    deleteToggle: (e: MouseEvent<HTMLDivElement>) => void;
-    noteIndex: number | undefined;
+  history: History;
+  note: Note;
+  deleteToggle: (e: MouseEvent<HTMLDivElement>) => void;
+  noteIndex: number | undefined;
 }
