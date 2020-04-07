@@ -1,38 +1,49 @@
 @import "./mixins.scss";
+.note-preview {
+  max-width: 100%;
 
-.sidebar-box {
+  .sidebar-box {
     position: relative;
 
     &.hide-overflow {
+      max-height: 1000px;
+      overflow: hidden;
+
+      @media (min-width: 768px) {
         max-height: 500px;
-        overflow: hidden;
+      }
     }
 
     &.show-overflow {
-        max-height: 100%;
+      max-height: 100%;
     }
 
-    .read-less, .read-more {
+    .read-less,
+    .read-more {
       font-weight: bolder;
       font-size: 1.5rem;
       cursor: pointer;
-      text-align: center; 
+      text-align: center;
     }
 
     .read-less {
-        text-decoration: underline;
+      text-decoration: underline;
     }
 
-    .read-more { 
-      position: absolute; 
-      bottom: 0; 
+    .read-more {
+      position: absolute;
+      bottom: 0;
       left: 0;
       margin: 0;
-      width: 100%; 
-      padding: 30px 0;
-        
+      width: 100%;
+      padding: 0;
+
       /* "transparent" only works here because == rgba(0,0,0,0) */
       background-image: linear-gradient(to bottom, transparent, #f2f1f2);
+
+      @media (min-width: 768px) {
+        padding: 30px 0;
+      }
     }
   }
-
+}

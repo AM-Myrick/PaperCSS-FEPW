@@ -53,4 +53,5 @@ export interface ShowMoreButtonProps {
   clickHandler: () => void;
   value: string;
   classes: string;
+  content: string;
 }
